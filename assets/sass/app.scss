@@ -316,7 +316,7 @@ body {
           font-size:100px;
           margin:-32px 0 0 0px;
           color:white;
-          vertical-align:middle;
+          vertical-align:top;
           border-radius:50%;
           padding:6px;
           width:112px;
@@ -402,7 +402,11 @@ body {
     border-style: solid;
     display: block;
     line-height: 0;
-    -webkit-transform: rotate(45deg);
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); /* IE 9 */
+    -webkit-transform:rotate(45deg); /* Safari and Chrome */
+    transform-origin: 20px 20px;
+    -ms-transform-origin: 20px 20px;
     -webkit-transform-origin: 20px 20px;
     position: absolute;
     top: -22px;
@@ -418,7 +422,11 @@ body {
     border-style: solid;
     display: block;
     line-height: 0;
-    -webkit-transform: rotate(45deg);
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); /* IE 9 */
+    -webkit-transform:rotate(45deg); /* Safari and Chrome */
+    transform-origin: 20px 20px;
+    -ms-transform-origin: 20px 20px;
     -webkit-transform-origin: 20px 20px;
     position: absolute;
     bottom: -20px;
@@ -438,7 +446,11 @@ body {
     border-style: solid;
     display: block;
     line-height: 0;
-    -webkit-transform: rotate(45deg);
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); /* IE 9 */
+    -webkit-transform:rotate(45deg); /* Safari and Chrome */
+    transform-origin: 20px 20px;
+    -ms-transform-origin: 20px 20px;
     -webkit-transform-origin: 20px 20px;
     position: absolute;
     top: -22px;
@@ -454,9 +466,11 @@ body {
     border-style: solid;
     display: block;
     line-height: 0;
-    transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+    transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); /* IE 9 */
+    -webkit-transform:rotate(-45deg); /* Safari and Chrome */
+    transform-origin: 20px 20px;
+    -ms-transform-origin: 20px 20px;
     -webkit-transform-origin: 20px 20px;
     position: absolute;
     bottom: -21px;
