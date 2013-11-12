@@ -18,7 +18,7 @@
       <div id="home_hero_slider" class="carousel fade" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-          <li data-target="#home_hero_slider" data-slide-to="0" class="active"><i class="fa fa-play-circle"></i>Combine</li>
+          <li data-target="#home_hero_slider" data-slide-to="0" class="active"><i class="fa fa-link"></i>Combine</li>
           <li data-target="#home_hero_slider" data-slide-to="1"><i class="fa fa-users"></i>Analyze</li>
           <li data-target="#home_hero_slider" data-slide-to="2"><i class="fa fa-signal"></i>Profit</li>
           <li class="watch">Watch <i class="fa fa-play-circle"></i></li>
