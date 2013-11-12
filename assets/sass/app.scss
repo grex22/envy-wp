@@ -306,22 +306,22 @@ body {
       }      
       &.watch{
         background:$blue;
-        font-size:26px;
+        font-size:21px;
         color:white;
-        width:220px;
+        width:210px;
         line-height:50px;
         padding-left:15px;
         i{
-          display:inline-block;
-          font-size:100px;
-          margin:-32px 0 0 0px;
-          color:white;
-          vertical-align:top;
-          border-radius:50%;
-          padding:6px;
-          width:112px;
-          height:112px;
-          background:$blue;
+          display: inline-block;
+          font-size: 96px;
+          margin: -29px 0 0 0px;
+          color: white;
+          vertical-align: top;
+          border-radius: 50%;
+          padding: 6px;
+          width: 107px;
+          height: 107px;
+          background: #36abff;
           @include transition(.3s);
         }
         &:hover{
@@ -380,6 +380,7 @@ body {
       font-weight: 700;
       text-transform:uppercase;
       letter-spacing: -.02em;
+      font-size:21px;
     }
     p{
       font-size:13px;
@@ -612,18 +613,18 @@ body {
   h2{color:$gray8;font-weight:300;width:80%;margin-left:auto;margin-right:auto;line-height:40px;}
   
   .verticals{
-    $vertwidth: 145px;
+    $vertwidth: 136px;
     text-align:center;
     display:inline-block;
-    margin:5px 22px;
-    width:$vertwidth;
+    margin:5px 20px;
+    width:$vertwidth + 13px;
 
     a:hover{text-decoration:none;}
     
     h3{font-size:16px;font-weight:500;@include transition-duration(.3s);}
     i{
       @include transition-duration(.3s);
-      font-size:70px;
+      font-size:62px;
       color:white;
       display:inline-block;
       width:$vertwidth;
