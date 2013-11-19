@@ -1,30 +1,33 @@
 $(document).ready(function(){
   $("#menu-primary-navigation").append('<li><a href="#" id="more-link">More</a></li>');
+  
+  var current_body_padding_top = $('body').css('padding-top');
+  var more_nav_animation_speed = 200;
 
   $("#more-link").click(function(e){
     e.preventDefault();
     $('body').toggleClass('more-nav-expanded');
-    $("#more-nav").slideToggle(100);
+    $("#more-nav").slideToggle(more_nav_animation_speed,'swing');
     if($('body').hasClass('more-nav-expanded')){
-      $('body').animate({ paddingTop: 265 },100);
+      $('body').animate({ paddingTop: current_body_padding_top + 200 },more_nav_animation_speed,'swing');
     }else{
-      $('body').animate({ paddingTop: 65 },100);
+      $('body').animate({ paddingTop: current_body_padding_top },more_nav_animation_speed,'swing');
     }
   });
 
   $(document).mouseup(function (e){
     if($('body').hasClass('more-nav-expanded') && ($("#main_wrap").is(e.target) || $("#main_wrap").has(e.target).length !== 0)){
       $('body').toggleClass('more-nav-expanded');
-      $("#more-nav").slideToggle(100);
-      $('body').animate({ paddingTop: 65 },100);
+      $("#more-nav").slideToggle(more_nav_animation_speed,'swing');
+      $('body').animate({ paddingTop: current_body_padding_top },more_nav_animation_speed,'swing');
     }
   });
 
   $("#more-nav #close").click(function(e){
     e.preventDefault();
-    $("#more-nav").slideToggle(100);
+    $("#more-nav").slideToggle(more_nav_animation_speed,'swing');
     $('body').toggleClass('more-nav-expanded');
-    $('body').animate({ paddingTop: 65 },100);
+    $('body').animate({ paddingTop: current_body_padding_top },more_nav_animation_speed,'swing');
   });
   
   $("#scroller_list").simplyScroll({

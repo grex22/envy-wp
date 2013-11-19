@@ -83,8 +83,19 @@
           wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
         endif;
       ?>
-      
     </nav>
   </div>
+  <?php if(!is_front_page()): //this will change! ?>
+  <div class="main_subnav_wrap">
+    <div class="container main_subnav">
+      <h3>Products: </h3>
+      <ul>
+        <li class="current-menu-item"><a href="#">Envysion Video</a></li>
+        <li><a href="#">Envysion Analytics</a></li>
+        <li><a href="#">Envysion Insights</a></li>
+      </ul>
+    </div>
+  </div>
+  <?php endif; ?>
 </header>
-<div id="main_wrap">
+

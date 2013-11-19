@@ -6,11 +6,11 @@
         <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>" class="footer_brand"></a>
       </div>
       <div class="col-lg-6 text-right social_icons">
-        <a href="#" title="Envysion on LinkedIn" class="linkedin"><img src="assets/img/social/linkedin.png"></a>
-        <a href="#" title="Envysion RSS" class="rss"><img src="assets/img/social/rss.png"></a>
-        <a href="#" title="Envysion on Facebook" class="facebook"><img src="assets/img/social/facebook.png"></a>
-        <a href="#" title="Envysion on Twitter" class="twitter"><img src="assets/img/social/twitter.png"></a>
-        <a href="#" title="Envysion on YouTube" class="youtube"><img src="assets/img/social/youtube.png"></a>
+        <a href="#" title="Envysion on LinkedIn" class="linkedin"><img src="<?php bloginfo('template_url'); ?>/assets/img/social/linkedin.png"></a>
+        <a href="#" title="Envysion RSS" class="rss"><img src="<?php bloginfo('template_url'); ?>/assets/img/social/rss.png"></a>
+        <a href="#" title="Envysion on Facebook" class="facebook"><img src="<?php bloginfo('template_url'); ?>/assets/img/social/facebook.png"></a>
+        <a href="#" title="Envysion on Twitter" class="twitter"><img src="<?php bloginfo('template_url'); ?>/assets/img/social/twitter.png"></a>
+        <a href="#" title="Envysion on YouTube" class="youtube"><img src="<?php bloginfo('template_url'); ?>/assets/img/social/youtube.png"></a>
       </div>
     </div>
     <div class="row">
@@ -47,5 +47,5 @@
       </div>
   </footer>
 </div>
-</div>
+
 <?php wp_footer(); ?>

@@ -12,6 +12,7 @@
       get_template_part('templates/header');
     }
   ?>
+  <div id="main_wrap">
   
   <div id="home_hero">
     <div class="wrap container">
@@ -188,8 +189,8 @@
       </div>
     </div>
   </div>
-
+  
   <?php get_template_part('templates/footer'); ?>
-
+  </div>
 </body>
 </html>

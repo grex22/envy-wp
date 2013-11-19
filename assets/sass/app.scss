@@ -35,6 +35,7 @@ $sm-width: 767px;
 $md-width: 970px;
 $lg-width: 1170px;
 $navbarheight: 65px;
+$subnavheight: 55px;
 
 $mainfont: "Open Sans", helvetica, arial, sans-serif;
 $secondaryfont: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
@@ -52,12 +53,21 @@ body {
   font-family:$mainfont;
   padding-top: $navbarheight;
   background-color:$gray9;
+  color:#666;
+  
+  &.has_subnav{
+    padding-top: $navbarheight + $subnavheight;
+  }
   
   &.admin-bar {    
     .banner{
       margin-top:28px;
     }
   }
+}
+.container.extra_padding{
+  padding-left:5%;
+  padding-right:5%;
 }
 .message-block{
   text-align:center;
@@ -200,6 +210,44 @@ body {
   
     & .container{
       position:relative;
+    }
+  }
+}
+.main_subnav_wrap{
+  background:#eee;
+  height:$subnavheight;
+  border-bottom:1px solid #c8c8c8;
+}
+.container.main_subnav{
+  padding-top:1px;
+  padding-left:65px;
+  h3{
+    color:$blue;
+    display:inline-block;
+    margin: 17px 20px 0 0;
+    font-size:17px;
+  }
+  ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:inline;
+    
+    li{
+      display:inline-block;
+      margin:0 6px;
+      &.current-menu-item a,
+      &:hover a{
+        background:white;
+      }
+      a{
+        @include transition(.3s);
+        display:inline-block;
+        padding:6px 10px;
+        border-radius:3px;
+        font-size:13px;
+        &:hover{text-decoration:none;}
+      }
     }
   }
 }
@@ -679,6 +727,49 @@ body {
   }
 }
 
+/* ==========================================================================
+   Page Elements
+   ========================================================================== */
+#main_wrap{
+  background:white;
+}
+.page_hero{
+  position:relative;
+  &.graybg{background:#f7f7f7;}
+  &:after{
+    content: "";
+    height: 1px;
+    width: 1px;
+    border-width: 0 0 40px 40px;
+    border-color: #f7f7f7 transparent;
+    border-style: solid;
+    display: block;
+    line-height: 0;
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg); /* IE 9 */
+    -webkit-transform:rotate(45deg); /* Safari and Chrome */
+    transform-origin: 20px 20px;
+    -ms-transform-origin: 20px 20px;
+    -webkit-transform-origin: 20px 20px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -22px;
+  }
+  .page_hero_content{
+    padding:40px 40px 50px 0;
+    h1,h2,h3,h4,h5,h6{
+      color:$blue;
+    }
+    h1{font-size:45px;}
+    p{
+      margin:19px 0 25px;
+      color: #777;
+      line-height: 24px;
+    }
+  }
+}
+
 .supporting_content{
   background: white;
   padding: 75px 0px;
@@ -716,7 +807,10 @@ img.polaroid{
   background:$warmgray;
   color:white;
   border:none;
+  display:inline-block;
   text-align:left;
+  padding: 10px 36px;
+  border-radius: 3px;
   @include transition-duration(.3s);
   
   i{
@@ -726,6 +820,10 @@ img.polaroid{
   &.primary{
     background:$blue;
     &:hover{background:darken($blue,10%)}
+  }
+  &.orange{
+    background:$orange;
+    &:hover{background:darken($orange,10%)}
   }
   
   &.medium{
@@ -738,7 +836,11 @@ img.polaroid{
   }
   & + .cta-btn{margin-left:20px;}
   
-  &:hover{background:darken($warmgray,10%)}
+  &:hover{
+    background:darken($warmgray,10%);
+    text-decoration:none;
+    color:white;
+  }
 }
 
 
@@ -746,7 +848,25 @@ img.polaroid{
    Content
    ========================================================================== */
 
-.content { }
+.content {
+  margin-top:45px;
+  padding-bottom:50px;
+  line-height: 25px;
+  
+  h2.section_header{
+    font-weight:700;
+    color:$orange;
+    text-transform:uppercase;
+    margin:20px 0 30px;
+    font-size:23px;
+  }
+  
+  blockquote p{
+    font-size:14.5px;
+    line-height:1.5;
+    font-style:italic;
+  }
+}
 
 
 
@@ -765,7 +885,10 @@ img.polaroid{
    Sidebar
    ========================================================================== */
 
-.sidebar { }
+.sidebar {
+  padding-right:50px;
+  padding-top:20px;
+}
 
 
 
