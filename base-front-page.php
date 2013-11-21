@@ -111,16 +111,17 @@
         <div class="simply-scroll-back simply-scroll-btn simply-scroll-btn-left slidecontrol"><i class="fa fa-chevron-left"></i></div>
         <div class="simply-scroll-forward simply-scroll-btn simply-scroll-btn-right slidecontrol"><i class="fa fa-chevron-right"></i></div>
         <ul id="scroller_list">
-          <li><img height="90" width="90" src="assets/img/logos/bk.png"></li>
-          <li><img height="90" width="90" src="assets/img/logos/ayer-oil.png"></li>
-          <li><img height="90" width="90" src="assets/img/logos/baskin_rob.png"></li>
-          <li><img height="90" width="90" src="assets/img/logos/bell.png"></li>
-          <li><img height="90" width="90" src="assets/img/logos/big_lots.png"></li>
-          <li><img height="90" width="90" src="assets/img/logos/captain_d.png"></li>
-          <li><img height="90" width="90" src="assets/img/logos/chevron.png"></li>
-          <li><img height="90" width="90" src="assets/img/logos/chick-fil-a.png"></li>
-          
-
+          <?php
+            $logos = get_posts(array(
+              'post_type'=>'customerlogos',
+              'showposts'=>-1,
+              'meta_key'=>'_thumbnail_id'
+            ));
+            foreach($logos as $l): ?>
+              <li><?php echo get_the_post_thumbnail( $l->ID, 'customer_logo' ); ?></li>
+            <?php              
+            endforeach;
+          ?>
         </ul>
       </div>
     </div>

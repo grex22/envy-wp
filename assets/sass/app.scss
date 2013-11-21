@@ -73,14 +73,53 @@ body {
   text-align:center;
   h1,h2,h3,h4,h5,h6{
     color:white;
-    margin: 35px 15%;
+    margin: 35px 15% 20px;
     line-height: 1.5;
+  }
+  padding-bottom: 40px;
+  &.leading_arrow{
+    padding-top: 20px;
+    position: relative;
+    
+    
+    &:before{
+      content: "";
+      height: 1px;
+      width: 1px;
+      border-width: 0 0 40px 40px;
+      border-color: white transparent;
+      border-style: solid;
+      display: block;
+      line-height: 0;
+      transform:rotate(45deg);
+      -ms-transform:rotate(45deg); /* IE 9 */
+      -webkit-transform:rotate(45deg); /* Safari and Chrome */
+      transform-origin: 20px 20px;
+      -ms-transform-origin: 20px 20px;
+      -webkit-transform-origin: 20px 20px;
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      margin-left: -22px;
+    }
   }
 }
 .orangebg{
   background-color:$orange;
   color:white;
 }
+.graybg{
+  background-color:$gray9;
+  color:$orange;
+  h1,h2,h3,h4,h5,h6{color:$orange;}
+}
+.bluebg{
+  background-color:#6BA0FF;
+  p{color:white!important;}
+  h1,h2,h3,h4,h5,h6{color:white!important;}
+  .cta-btn.primary,.cta-btn{background:$orange;}
+}
+
 
 /* ==========================================================================
    Header
@@ -246,6 +285,8 @@ body {
         padding:6px 10px;
         border-radius:3px;
         font-size:13px;
+        color:$orange;
+        font-weight:700;
         &:hover{text-decoration:none;}
       }
     }
@@ -735,7 +776,6 @@ body {
 }
 .page_hero{
   position:relative;
-  &.graybg{background:#f7f7f7;}
   &:after{
     content: "";
     height: 1px;
@@ -768,6 +808,10 @@ body {
       line-height: 24px;
     }
   }
+  &.bluebg:after{
+    border-color: #6BA0FF transparent;
+  }
+  
 }
 
 .supporting_content{
@@ -852,19 +896,28 @@ img.polaroid{
   margin-top:45px;
   padding-bottom:50px;
   line-height: 25px;
-  
-  h2.section_header{
-    font-weight:700;
-    color:$orange;
-    text-transform:uppercase;
-    margin:20px 0 30px;
-    font-size:23px;
-  }
-  
-  blockquote p{
-    font-size:14.5px;
-    line-height:1.5;
-    font-style:italic;
+  .main{
+    h1,h2,h3,h4,h5,h6{
+      font-weight:700;
+      text-transform:uppercase;
+      color:$orange;
+    }
+    h1{
+      margin:20px 0 36px;
+      font-size:26px;
+      color:$gray8;
+    }
+    h2{
+      margin:20px 0 30px;
+      font-size:23px;
+    }
+    p{margin-bottom:25px;}
+    p + h2{margin-top:40px;}
+    blockquote p{
+      font-size:14.5px;
+      line-height:1.5;
+      font-style:italic;
+    }
   }
 }
 
@@ -886,8 +939,45 @@ img.polaroid{
    ========================================================================== */
 
 .sidebar {
-  padding-right:50px;
+  padding-right:7%;
   padding-top:20px;
+  
+  section{
+    margin-bottom:40px;
+    
+    h3{
+      margin-top:0px;
+      margin-bottom:20px;
+      font-size:19px;
+    }
+  }
+  
+  ul.menu{
+    padding:0;
+    list-style:none;
+    
+    li{
+      font-size:13px;
+      margin:2px 0;
+      
+      a{
+        padding:5px 8px;
+        color:$blue;
+        border-radius:3px;
+        display:block;
+        &:hover{
+          text-decoration:none;
+          background:#f1f1f1;
+        }
+      }
+      
+      &.active a{
+        background:#ccc;
+        color:white;
+      }
+    }
+  }
+  
 }
 
 
