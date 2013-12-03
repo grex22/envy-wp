@@ -136,39 +136,38 @@
       <div class="verticals orange"><a href="#"><h3>Hospitality</h3><i class="fa fa-hospital-o"></i></a></div>
     </div>
   </div>
-  <div class="supporting_content">
-    <div class="wrap container">
-      <div class="row">
-        <div class="col-lg-5 hidden-sm">
-          <img src="assets/img/panerademo.jpg" class="polaroid">
-        </div>
-        <div class="col-lg-7 more_left_padding">
-          <h2>Value Proposition One, With a Beautiful Illustrative Graphic or Photo.</h2>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-          <button class="cta-btn medium secondary"><i class="fa fa-file-text"></i> Secondary Link</button>
-          <button class="cta-btn medium primary"><i class="fa fa-play-circle"></i> Secondary Link</button>
+  <?php while(has_sub_field("home_page_content")): ?>
+    <?php if(get_row_layout() == "callout_blocks"): // layout: Content ?>
+      <div class="supporting_content">
+        <div class="wrap container">
+          <div class="row">
+            <?php if(get_sub_field('block_alignment') == "Left"): ?>
+              <div class="col-lg-5 hidden-sm">
+                <?php $imgid = get_sub_field('callout_picture'); ?>
+                <?php echo wp_get_attachment_image($imgid,'full',false,array('class'=>"polaroid")); ?>
+              </div>
+            <?php endif; ?>
+            <div class="col-lg-7 more_<?php echo strtolower(get_sub_field('block_alignment')); ?>_padding">
+              <h2><?php the_sub_field('headline'); ?></h2>
+              <p><?php the_sub_field('excerpt'); ?></p>
+              <?php if(get_sub_field('primary_button_text')):?>
+                <a href="<?php the_sub_field('primary_button_link'); ?>" class="cta-btn medium primary"><i class="fa fa-play-circle"></i> <?php the_sub_field('primary_button_text'); ?></a>
+              <?php endif; ?>
+              <?php if(get_sub_field('secondary_button_text')):?>
+              <a href="<?php the_sub_field('secondary_button_link'); ?>" class="cta-btn medium secondary"><i class="fa fa-file-text"></i> <?php the_sub_field('secondary_button_text'); ?></a>
+              <?php endif; ?>
+            </div>
+            <?php if(get_sub_field('block_alignment') == "Right"): ?>
+              <div class="col-lg-5 hidden-sm">
+                <?php $imgid = get_sub_field('callout_picture'); ?>
+                <?php echo wp_get_attachment_image($imgid,'full',false,array('class'=>"polaroid")); ?>
+              </div>
+            <?php endif; ?>
+          </div>
         </div>
       </div>
-      
-    </div>
-  </div>
-  <div class="supporting_content">
-    <div class="wrap container">
-      <div class="row">
-        <div class="col-lg-7 more_right_padding">
-          <h2>Value Proposition One, With a Beautiful Illustrative Graphic or Photo.</h2>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-          <button class="cta-btn medium secondary"><i class="fa fa-file-text"></i> Secondary Link</button>
-          <button class="cta-btn medium primary"><i class="fa fa-play-circle"></i> Secondary Link</button>
-        </div>
-        <div class="col-lg-5 hidden-sm">
-          <img src="assets/img/panerademo.jpg" class="polaroid">
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
+    <?php endif; // end if get_row_layout() == callout_blocks ?>
+  <?php endwhile;  // end while has_sub_field() ?>  
   
   <div class="wrap container hidden" role="document">
     <div class="content row">
