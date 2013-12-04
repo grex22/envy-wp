@@ -75,7 +75,7 @@
       <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
     </div>
     <ul class="nav navbar-nav pull-right">
-      <li class="gbb-client-login"><a href="#">Client Login</a></li>
+      <li class="gbb-client-login"><a href="#"><i class="fa fa-user"></i>&nbsp; Client Login </a></li>
     </ul>
     <nav class="collapse navbar-collapse" role="navigation">
       <?php

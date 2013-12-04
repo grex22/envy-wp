@@ -1,5 +1,9 @@
 <div class="page-header">
-  <h1>
+  <?php
+    if(get_field('hero_headline')) $tag = "h2";
+    else $tag = "h1";
+  ?>
+  <<?php echo $tag; ?>>
     <?php echo roots_title(); ?>
-  </h1>
+  </<?php echo $tag; ?>>
 </div>
