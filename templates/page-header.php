@@ -1,6 +1,6 @@
 <div class="page-header">
   <?php
-    if(get_field('hero_headline')) $tag = "h2";
+    if(get_field('display_page_header')) $tag = "h2";
     else $tag = "h1";
   ?>
   <<?php echo $tag; ?>>
