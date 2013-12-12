@@ -327,7 +327,7 @@ body.admin-bar .banner {
 /* line 303, ../sass/app.scss */
 #home_hero {
   padding: 30px 0 0 0;
-  background-image: url("../img/blur.jpg");
+  background-image: url("../img/hero-bg.jpg");
   background-size: cover;
 }
 /* line 308, ../sass/app.scss */
