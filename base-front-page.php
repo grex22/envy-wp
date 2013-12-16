@@ -18,13 +18,23 @@
     <div class="wrap container">
       <div id="home_hero_slider" class="carousel fade" data-ride="carousel">
         <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#home_hero_slider" data-slide-to="0" class="active"><i class="fa fa-link"></i>Combine</li>
-          <li data-target="#home_hero_slider" data-slide-to="1"><i class="fa fa-users"></i>Analyze</li>
-          <li data-target="#home_hero_slider" data-slide-to="2"><i class="fa fa-signal"></i>Profit</li>
-          <li class="watch">Watch <i class="fa fa-play-circle"></i></li>
-        </ol>
+        <?php if( get_field('slide') ): ?>
+
+          <?php $controls = '<ol class="carousel-indicators">'; ?>
+          <?php $slides = '<ol class="carousel-indicators">'; ?>
+          <?php $i=0; ?>
+         
+          <?php while( has_sub_field('slide') ): ?>
+            <?php if($i == 0) $class = ' class="active"';
+                  else $class = ""; ?>
+            <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'"'.$class.'><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
+          <?php endwhile; ?>
+          
+          <?php $controls .='<li class="watch">Watch <i class="fa fa-play-circle"></i></li></ol>'; ?>
+        <?php endif; ?>
       
+        <?php echo $controls; ?>
+            
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
