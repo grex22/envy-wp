@@ -21,55 +21,36 @@
         <?php if( get_field('slide') ): ?>
 
           <?php $controls = '<ol class="carousel-indicators">'; ?>
-          <?php $slides = '<ol class="carousel-indicators">'; ?>
+          <?php $slides = '<div class="carousel-inner">'; ?>
           <?php $i=0; ?>
          
           <?php while( has_sub_field('slide') ): ?>
-            <?php if($i == 0) $class = ' class="active"';
+            <?php if($i == 0) $class = ' active';
                   else $class = ""; ?>
-            <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'"'.$class.'><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
+            <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="'.$class.'"><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
+            <?php $slides .= '<div class="item'.$class.'">'; ?>
+            <?php $slides .= '<div class="row">'; ?>
+            <?php $slides .= '<div class="col-lg-6 padding_right">'; ?>
+            <?php $slides .= '<h2>'.get_sub_field('slide_headline').'</h2>'; ?>
+            <?php $slides .= '<p>'.get_sub_field('slide_blurb').'</p>'; ?>
+            <?php $slides .= '</div>'; ?>
+            <?php $slides .= '<div class="col-lg-6 text-center">'; ?>
+            <?php $slides .= '<img src="assets/img/ipad.png">'; ?>
+            <?php $slides .= '</div>'; ?>
+            <?php $slides .= '</div>'; ?>
+            <?php $slides .= '</div>'; ?>
+            
+            <?php $i++; ?>
+          
           <?php endwhile; ?>
           
           <?php $controls .='<li class="watch">Watch <i class="fa fa-play-circle"></i></li></ol>'; ?>
+          <?php $slides .='</div>'; ?>
         <?php endif; ?>
       
         <?php echo $controls; ?>
-            
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <div class="row">
-              <div class="col-lg-6 padding_right">
-                <h2>Watch. Learn.<br>Decide.</h2>
-                <p>Don't just guess what's going on in your stores, see it happen in real-time. Make more informed decisions and increase profitability, just by pressing 'play'.</p>
-              </div>
-              <div class="col-lg-6 text-center">
-                <img src="assets/img/ipad.png">
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-6 padding_right">
-                <h2 class="smaller">Lorem Ipsum Dolor Quantas.</h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy sar eirmod tempor invidunt ut labore scing elitr, sed diam nonumy tempor invidunt ut labore.</p>
-              </div>
-              <div class="col-lg-6 text-center">
-                <img src="assets/img/ipad.png">
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-lg-6 padding_right">
-                <h2 class="smaller">Ipsum Dolor Isset Quantas.</h2>
-                <p>Dolor ipsum qual sit amet, consetetur sadipscing exict sip ta res elitr, sed nonumy tempor invidunt ut labore scing elitr, sed diam nonumy eirmod tempor invidunt ut labore quanta.</p>
-              </div>
-              <div class="col-lg-6 text-center">
-                <img src="assets/img/ipad.png">
-              </div>
-            </div>
-          </div>
+        <?php echo $slides; ?>
+        
         </div>
       </div>
     </div>
