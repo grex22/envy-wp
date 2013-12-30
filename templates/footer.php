@@ -16,15 +16,7 @@
     <div class="row">
       <div class="col-lg-3">
         <h5>Contact</h5>
-        Envysion, Inc.<br>
-        400 Centennial Pkwy<br>
-        Suite 201<br>
-        Louisville, CO 80027<br><br>
-
-        303.590.2350 (Local)<br>
-        877.258.9441 (Toll Free)<br>
-        303.590.2351 (Fax)<br>
-        contact@envysion.com
+        <?php the_field('footer_contact_block','option'); ?>
       </div>
       <div class="col-lg-3">
         <h5>Sitemap</h5>
