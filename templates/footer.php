@@ -36,6 +36,7 @@
       </div>
       <div class="col-lg-3">
         <h5>Legal</h5>
+        <?php the_field('footer_legal_block','option'); ?>
       </div>
   </footer>
 </div>
