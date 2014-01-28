@@ -20,13 +20,13 @@ h1, h2, h3, h4, h5, h6 {
 /* line 52, ../sass/app.scss */
 body {
   font-family: "Open Sans", helvetica, arial, sans-serif;
-  padding-top: 65px;
+  padding-top: 61px;
   background-color: #f7f7f7;
   color: #666;
 }
 /* line 58, ../sass/app.scss */
 body.has_subnav {
-  padding-top: 120px;
+  padding-top: 116px;
 }
 /* line 63, ../sass/app.scss */
 body.admin-bar .banner {
@@ -173,13 +173,13 @@ body.admin-bar .banner {
 }
 /* line 181, ../sass/app.scss */
 .banner > .container {
-  height: 65px;
+  height: 61px;
 }
 /* line 184, ../sass/app.scss */
 .banner > .container #menu-primary-navigation a,
 .banner > .container a.navbar-brand {
-  height: 65px;
-  line-height: 35px !important;
+  height: 61px;
+  line-height: 31px !important;
   color: #36abff;
 }
 /* line 190, ../sass/app.scss */
@@ -245,12 +245,12 @@ body.admin-bar .banner {
 }
 /* line 236, ../sass/app.scss */
 .banner > .container .navbar-nav > li.gbb-client-login {
-  height: 65px;
+  height: 61px;
 }
 /* line 238, ../sass/app.scss */
 .banner > .container .navbar-nav > li.gbb-client-login a {
-  height: 65px;
-  line-height: 32.5px;
+  height: 61px;
+  line-height: 30.5px;
   font-size: 12px;
 }
 /* line 246, ../sass/app.scss */
