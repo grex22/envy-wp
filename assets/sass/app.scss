@@ -200,6 +200,7 @@ body {
       li.menu-convenience-store a,
       li.menu-cinema a,
       li.menu-restaurants a,
+      li.menu-restaurant a, /* Sigh.. */
       li.menu-retail a{
         position:relative;padding-right:20px;
         &:hover:before{color:white;}
@@ -218,7 +219,7 @@ body {
       li.menu-hospitality a:before{content: "\f0f8";}
       li.menu-convenience-store a:before{content: "\f0d1";}
       li.menu-cinema a:before{content: "\f03d";}
-      li.menu-restaurants a:before{content: "\f0f5";}
+      li.menu-restaurants a:before,li.menu-restaurant a:before{content: "\f0f5";}
       li.menu-retail a:before{content: "\f07a";}
       
  
