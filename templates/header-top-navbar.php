@@ -80,13 +80,13 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <?php
         if (has_nav_menu('primary_navigation')) :
-          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav', 'depth' => 1));
+          wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav', 'depth' => 2));
         endif;
       ?>
     </nav>
   </div>
   <?php if(!is_front_page()): //this will change! ?>
-  <div class="main_subnav_wrap">
+  <!--<div class="main_subnav_wrap">
     <div class="container main_subnav">
       <h3>Products: </h3>
       <ul>
@@ -95,7 +95,7 @@
         <li><a href="#">Envysion Insights</a></li>
       </ul>
     </div>
-  </div>
+  </div>-->
   <?php endif; ?>
 </header>
 

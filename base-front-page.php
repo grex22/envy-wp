@@ -14,28 +14,31 @@
   ?>
   <div id="main_wrap">
   
-  <div id="home_hero">
-    <div class="wrap container">
-      <div id="home_hero_slider" class="carousel fade" data-ride="carousel">
-        <!-- Indicators -->
-        <?php if( get_field('slide') ): ?>
-
-          <?php $controls = '<ol class="carousel-indicators">'; ?>
-          <?php $slides = '<div class="carousel-inner">'; ?>
+    
+      <?php if( get_field('slide') ): ?>
+      
+          <div id="home_hero_slider" class="carousel fade" data-ride="carousel">
+      
+          <?php $controls = '<ol class="carousel-indicators home_hero_controls">'; ?>
+          <?php $slides .= '<div class="carousel-inner">'; ?>
           <?php $i=0; ?>
          
           <?php while( has_sub_field('slide') ): ?>
             <?php if($i == 0) $class = ' active';
                   else $class = ""; ?>
+            <?php $slidebg = get_sub_field('slide_background'); ?>
+            <?php $highlightimg = get_sub_field('slide_highlight_image'); ?>
             <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="'.$class.'"><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
-            <?php $slides .= '<div class="item'.$class.'">'; ?>
+            <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].') bottom center no-repeat">'; ?>
+            <?php $slides .= '<div class="wrap container">'; ?>
             <?php $slides .= '<div class="row">'; ?>
             <?php $slides .= '<div class="col-lg-6 padding_right">'; ?>
             <?php $slides .= '<h2>'.get_sub_field('slide_headline').'</h2>'; ?>
             <?php $slides .= '<p>'.get_sub_field('slide_blurb').'</p>'; ?>
             <?php $slides .= '</div>'; ?>
             <?php $slides .= '<div class="col-lg-6 text-center">'; ?>
-            <?php $slides .= '<img src="assets/img/ipad.png">'; ?>
+            <?php if($highlightimg) $slides .= '<img src="'.$highlightimg[url].'">'; ?>
+            <?php $slides .= '</div>'; ?>
             <?php $slides .= '</div>'; ?>
             <?php $slides .= '</div>'; ?>
             <?php $slides .= '</div>'; ?>
@@ -46,13 +49,16 @@
           
           <?php $controls .='<li class="watch">Watch <i class="fa fa-play-circle"></i></li></ol>'; ?>
           <?php $slides .='</div>'; ?>
+
         <?php endif; ?>
-      
+        <div class="wrap container"><div class="row"><div class="col-lg-12 indicators_wrap">
         <?php echo $controls; ?>
+        </div></div></div>
         <?php echo $slides; ?>
         
         </div>
-      </div>
+        
+    </div>
     </div>
   </div>
   <div id="home_diagram">

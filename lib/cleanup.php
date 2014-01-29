@@ -110,7 +110,7 @@ function roots_body_class($classes) {
   // Add post/page slug
   if (is_single() || is_page() && !is_front_page()) {
     $classes[] = basename(get_permalink());
-    $classes[] = "has_subnav";
+    /*$classes[] = "has_subnav";*/
   }
 
   // Remove unnecessary classes
