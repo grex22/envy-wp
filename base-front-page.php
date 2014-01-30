@@ -141,7 +141,7 @@
             <?php if(get_sub_field('block_alignment') == "Left"): ?>
               <div class="col-lg-5 hidden-sm">
                 <?php $imgid = get_sub_field('callout_picture'); ?>
-                <?php echo wp_get_attachment_image($imgid,'full',false,array('class'=>"polaroid")); ?>
+                <?php echo wp_get_attachment_image($imgid,'call_out_block_image',false,array('class'=>"polaroid")); ?>
               </div>
             <?php endif; ?>
             <div class="col-lg-7 more_<?php echo strtolower(get_sub_field('block_alignment')); ?>_padding">
@@ -157,7 +157,7 @@
             <?php if(get_sub_field('block_alignment') == "Right"): ?>
               <div class="col-lg-5 hidden-sm">
                 <?php $imgid = get_sub_field('callout_picture'); ?>
-                <?php echo wp_get_attachment_image($imgid,'full',false,array('class'=>"polaroid")); ?>
+                <?php echo wp_get_attachment_image($imgid,'call_out_block_image',false,array('class'=>"polaroid")); ?>
               </div>
             <?php endif; ?>
           </div>

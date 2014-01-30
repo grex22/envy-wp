@@ -64,3 +64,4 @@ function envy_register_post_types() {
 add_action( 'init', 'envy_register_post_types' );
 
 add_image_size('customer_logo',90,90,false);
+add_image_size('call_out_block_image',450,225,true);
