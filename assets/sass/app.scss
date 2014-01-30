@@ -320,6 +320,27 @@ body {
       position:relative;
     }
   }
+  
+  #announcement_wrap{
+    background: #f2f2f2;
+    height: 60px;
+    padding:20px 0;
+    opacity: .8;
+    display:none;
+    box-shadow: inset 0px 4px 8px -3px #999;
+    
+    .cta-btn{
+      padding:5px 12px;
+      margin-left:10px;
+      margin-top:-5px;
+      &.primary{background:$orange;}
+      
+      i{
+        margin-right:2px;
+      }
+    }
+  }
+  
 }
 .main_subnav_wrap{
   background:#eee;

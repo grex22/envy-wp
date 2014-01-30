@@ -85,17 +85,18 @@
       ?>
     </nav>
   </div>
-  <?php if(!is_front_page()): //this will change! ?>
-  <!--<div class="main_subnav_wrap">
-    <div class="container main_subnav">
-      <h3>Products: </h3>
-      <ul>
-        <li class="current-menu-item"><a href="#">Envysion Video</a></li>
-        <li><a href="#">Envysion Analytics</a></li>
-        <li><a href="#">Envysion Insights</a></li>
-      </ul>
+  
+  
+  <?php if(is_front_page()): //this will change! ?>
+    <div id="announcement_wrap">
+      <div class="container">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          Check out our new blog post <a href="#">How to Survive the MVaaS Revolution</a>
+          <a href="#" id="announcement_close" class="cta-btn small pull-right"><i class="fa fa-times"></i> Close</a>
+          <a href="#" class="cta-btn small primary pull-right"><i class="fa fa-play-circle"></i> Primary Link</a>
+        </div>
+      </div>
     </div>
-  </div>-->
   <?php endif; ?>
 </header>
 
