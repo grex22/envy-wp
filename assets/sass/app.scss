@@ -181,6 +181,13 @@ body {
   & > .container {
     height: $navbarheight;
     #menu-primary-navigation>li{
+    
+    .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
+      background-color: #f3f3f3;
+      color:$blue;
+      &:before{color:$blue;}
+    }
+    
       &.open>a{background:#f4f4f4;}
       &>a,
       a.navbar-brand{
