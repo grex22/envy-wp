@@ -29,7 +29,7 @@
             <?php $slidebg = get_sub_field('slide_background'); ?>
             <?php $highlightimg = get_sub_field('slide_highlight_image'); ?>
             <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="'.$class.'"><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
-            <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].') bottom center no-repeat">'; ?>
+            <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].') top center no-repeat;background-size:cover;">'; ?>
             <?php $slides .= '<div class="wrap container">'; ?>
             <?php $slides .= '<div class="row">'; ?>
             <?php $slides .= '<div class="col-lg-6 padding_right">'; ?>

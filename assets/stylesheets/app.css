@@ -430,8 +430,8 @@ body.admin-bar .banner {
 /* line 372, ../sass/app.scss */
 .home_hero_slide {
   padding: 30px 0 0 0;
-  background: url("../img/hero-bg.jpg") bottom center no-repeat;
-  background-size: cover;
+  background: top center no-repeat;
+  background-size: cover !important;
 }
 /* line 377, ../sass/app.scss */
 .home_hero_slide div.padding_right {

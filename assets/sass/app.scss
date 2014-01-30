@@ -371,8 +371,8 @@ body {
    ========================================================================== */
 .home_hero_slide{
   padding:30px 0 0 0;
-  background: url('../img/hero-bg.jpg') bottom center no-repeat;
-  background-size: cover;
+  background: top center no-repeat;
+  background-size: cover!important;
   
   div.padding_right{
     padding-right:130px;
