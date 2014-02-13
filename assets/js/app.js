@@ -5,6 +5,8 @@ $(document).ready(function(){
   var more_nav_animation_speed = 200;
 
   $("#more-link").click(function(e){
+    var current_body_padding_top = $('body').css('padding-top');
+    console.log(current_body_padding_top);
     e.preventDefault();
     $('body').toggleClass('more-nav-expanded');
     $("#more-nav").slideToggle(more_nav_animation_speed,'swing');
