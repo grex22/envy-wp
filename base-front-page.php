@@ -29,11 +29,12 @@
             <?php $slidebg = get_sub_field('slide_background'); ?>
             <?php $highlightimg = get_sub_field('slide_highlight_image'); ?>
             <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="'.$class.'"><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
-            <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].') top center no-repeat;background-size:cover;">'; ?>
+            <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].') top center no-repeat;background-size:cover;" id="frosted-'.$i.'">'; ?>
             <?php $slides .= '<div class="wrap container">'; ?>
             <?php $slides .= '<div class="row">'; ?>
-            <?php $slides .= '<div class="col-lg-6 padding_right frosted" id="frosted-'.$i.'">'; ?>
-            <?php echo "<style>#frosted-".$i.":before{background-image: url(\'data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20width%3D%221920%22%20height%3D%221120%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cimage%20xlink%3Ahref%3D%22http%3A%2F%2Fplacekitten.com%2F1920%2F1120%22%20width%3D%221920%22%20height%3D%221120%22%20filter%3D%22url%28%23blur%29%22%2F%3E%3C%2Fsvg%3E\'), url('".$slidebg[url]."');}</style>"; ?>
+            <?php $slides .= '<div class="col-lg-6 padding_right">'; ?>
+            <?php echo "<style>#frosted-".$i.":before{background-image: url(\'data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20width%3D%221920%22%20height%3D%221120%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cimage%20xlink%3Ahref%3D%22http%3A%2F%2Fplacekitten.com%2F1920%2F1120%22%20width%3D%221920%22%20height%3D%221120%22%20filter%3D%22url%28%23blur%29%22%2F%3E%3C%2Fsvg%3E\'), url('".$slidebg[url]."');
+            }</style>"; ?>
             <?php $slides .= '<h2>'.get_sub_field('slide_headline').'</h2>'; ?>
             <?php $slides .= '<p>'.get_sub_field('slide_blurb').'</p>'; ?>
             <?php $slides .= '</div>'; ?>

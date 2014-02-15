@@ -38,7 +38,7 @@ $(document).ready(function(){
   });
   
   $('#home_hero_slider').carousel({
-    interval: 4000
+    interval: 6000
   })
   
   jQuery('ul.nav li.dropdown').hover(function() {
