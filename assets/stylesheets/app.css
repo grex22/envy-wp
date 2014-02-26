@@ -112,7 +112,7 @@ body.admin-bar .banner {
   color: white !important;
 }
 /* line 122, ../sass/app.scss */
-.bluebg .cta-btn.primary, .bluebg .cta-btn {
+.bluebg .cta-btn.primary {
   background: #ff9000;
 }
 
