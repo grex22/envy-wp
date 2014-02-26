@@ -14,27 +14,76 @@
   ?>
   <div id="main_wrap">
     <?php if(get_field('display_page_header')): ?>
-    <div class="page_hero bluebg">
-      <div class="wrap container extra_padding">
-        <div class="row">
-          <div class="col-lg-6 page_hero_content">
-            <h1><?php
-              if(get_field('hero_headline')) the_field('hero_headline');
-              else the_title()
-            ?></h1>
-            <p><?php the_field('hero_blurb'); ?></p>
-            <?php if(get_field('hero_button')): ?>
-            <a href="<?php the_field('hero_button_link'); ?>" class="cta-btn primary"><?php the_field('hero_button'); ?></a>
-            <?php endif; ?>
-          </div>
-          <div class="col-lg-6 page_hero_graphic">
-            <?php if(get_field('hero_image')): ?>
-              <?php echo wp_get_attachment_image(get_field('hero_image'),'full'); ?>
-            <?php endif; ?>
+    <?php //load up our variables:
+          $herostyle = get_field('hero_style');
+          $headline = get_field('hero_headline');
+          $blurb = get_field('hero_blurb');
+          $button_p_text = get_field('hero_button');
+          $button_p_link = get_field('hero_button_link');
+          $button_s_text = get_field('hero_button_secondary');
+          $button_s_link = get_field('hero_button_secondary_link');
+          $bgimg = get_field('hero_image_background');
+          $highlightimg = get_field('hero_image');
+          $bgcolor = get_field('hero_background_color');
+          
+          if($herostyle == 'split'):
+    ?>
+    
+      <div class="page_hero bluebg">
+        <div class="wrap container extra_padding">
+          <div class="row">
+            <div class="col-lg-6 page_hero_content">
+              <h1><?php
+                if($headline) echo $headline;
+                else the_title()
+              ?></h1>
+              <?php if($blurb): ?><p><?php echo $blurb; ?></p><?php endif; ?>
+              <?php if($button_p_text): ?>
+                <a href="<?php echo $button_p_link; ?>" class="cta-btn primary"><?php echo $button_p_text; ?></a>
+              <?php endif; ?>
+              <?php if($button_s_text): ?>
+                <a href="<?php echo $button_s_link; ?>" class="cta-btn"><?php echo $button_s_text; ?></a>
+              <?php endif; ?>
+            </div>
+            <div class="col-lg-6 page_hero_graphic">
+              <?php if($highlightimg): ?>
+                <?php echo wp_get_attachment_image($highlightimg,'full'); ?>
+              <?php endif; ?>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <?php elseif($herostyle == 'center'): ?>
+      
+      <div class="page_hero bluebg" style="background:url('<?php echo wp_get_attachment_image($bgimg, 'full'); ?>');background-position:cover">
+        <?php $bgcolor_opacity = hex2rgba( $bgcolor, 0.8); ?>
+        <div style="background-color:<?php echo $bgcolor_opacity; ?>">
+          <style>
+            .page_hero.bluebg:after {
+              border-color: <?php echo $bgcolor; ?> transparent;
+            }
+          </style>
+          <div class="wrap container extra_padding">
+            <div class="row">
+              <div class="col-lg-12 page_hero_content text-center">
+                <h1><?php
+                  if($headline) echo $headline;
+                  else the_title()
+                ?></h1>
+                <?php if($blurb): ?><p><?php echo $blurb; ?></p><?php endif; ?>
+                <?php if($button_p_text): ?>
+                  <a href="<?php echo $button_p_link; ?>" class="cta-btn primary"><?php echo $button_p_text; ?></a>
+                <?php endif; ?>
+                <?php if($button_s_text): ?>
+                  <a href="<?php echo $button_s_link; ?>" class="cta-btn"><?php echo $button_s_text; ?></a>
+                <?php endif; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <?php endif; ?>
     <?php endif; ?>
     <div class="wrap container extra_padding" role="document">
       <div class="content row">
