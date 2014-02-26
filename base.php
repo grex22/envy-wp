@@ -55,7 +55,7 @@
       </div>
       <?php elseif($herostyle == 'center'): ?>
       
-      <div class="page_hero bluebg" style="background:url('<?php echo wp_get_attachment_image($bgimg, 'full'); ?>');background-position:cover">
+      <div class="page_hero bluebg" style="background:url('<?php $bgimgsrc = wp_get_attachment_image_src($bgimg, 'full'); echo $bgimgsrc['url']; ?>');background-position:cover">
         <?php $bgcolor_opacity = hex2rgba( $bgcolor, 0.8); ?>
         <div style="background-color:<?php echo $bgcolor_opacity; ?>">
           <style>
