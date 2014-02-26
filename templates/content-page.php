@@ -48,7 +48,7 @@
                     foreach($tabscontent as $tabcont):
                       $tabscontent_string .= '<div class="tab-pane';
                       if($i == 1) $tabscontent_string.=' active';
-                      $tabscontent_string.=' id="tab'.$i.'" >'.$tabcont.'</div>';
+                      $tabscontent_string.='" id="tab'.$i.'">'.$tabcont.'</div>';
                       $i++;
                     endforeach;
                     
