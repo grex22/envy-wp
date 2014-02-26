@@ -38,7 +38,7 @@
                     foreach($tabsarray as $tabtitle):
                       $tabs_string .= '<li';
                       if($i == 1) $tabs_string.=' class="active"';
-                      $tabs_string.='><a href="#tab'.$i.'" data-toggle="tab">'.$tabtitle.'</a></li>'
+                      $tabs_string.='><a href="#tab'.$i.'" data-toggle="tab">'.$tabtitle.'</a></li>';
                     endforeach;
                     $tabs_string .= "</ul>";
                     
@@ -47,7 +47,7 @@
                     foreach($tabscontent as $tabcont):
                       $tabscontent_string .= '<div class="tab-pane';
                       if($i == 1) $tabscontent_string.=' active';
-                      $tabscontent_string.=' id="tab'.$i.'" >'.$tabcont.'</div>'
+                      $tabscontent_string.=' id="tab'.$i.'" >'.$tabcont.'</div>';
                     endforeach;
                     
                     ?>
