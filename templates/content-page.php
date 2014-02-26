@@ -10,8 +10,10 @@
         while ( have_rows('page_content_blocks') ) : the_row();
      
             if( get_row_layout() == 'standard_content' ):
-     
-              the_sub_field('paragraph_content');
+
+              echo "<div class='contentblock'>";
+                the_sub_field('paragraph_content');
+              echo "</div>";
      
             elseif( get_row_layout() == 'tabbed_box' ): 
               if( have_rows('tabs') ):
@@ -27,7 +29,41 @@
                
                   endwhile;
                   
-                  print_r($tabsarray);
+                  if($tabsarray && $tabscontent):
+                    
+                    $i = 1;
+                    $tabs_string = "<ul class='nav nav-tabs'>";
+                    $tabscontent_string = "<div class='tab-content'>";
+                    
+                    foreach($tabsarray as $tabtitle):
+                      $tabs_string .= '<li';
+                      if($i == 1) $tabs_string.=' class="active"';
+                      $tabs_string.='><a href="#tab'.$i.'" data-toggle="tab">'.$tabtitle.'</a></li>'
+                    endforeach;
+                    $tabs_string .= "</ul>";
+                    
+                    $i = 1;
+                    
+                    foreach($tabscontent as $tabcont):
+                      $tabscontent_string .= '<div class="tab-pane';
+                      if($i == 1) $tabscontent_string.=' active';
+                      $tabscontent_string.=' id="tab'.$i.'" >'.$tabcont.'</div>'
+                    endforeach;
+                    
+                    ?>
+                  
+                    <div class='contentblock'>
+                    
+                      <?php echo $tabs_string; ?>
+                      <?php echo $tabscontent_string; ?>
+
+                    </div>
+                    
+                    </div>
+                    
+                    <?php
+                    
+                  endif;
                
               else :
                
