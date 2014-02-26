@@ -39,6 +39,7 @@
                       $tabs_string .= '<li';
                       if($i == 1) $tabs_string.=' class="active"';
                       $tabs_string.='><a href="#tab'.$i.'" data-toggle="tab">'.$tabtitle.'</a></li>';
+                      $i++;
                     endforeach;
                     $tabs_string .= "</ul>";
                     
@@ -48,6 +49,7 @@
                       $tabscontent_string .= '<div class="tab-pane';
                       if($i == 1) $tabscontent_string.=' active';
                       $tabscontent_string.=' id="tab'.$i.'" >'.$tabcont.'</div>';
+                      $i++;
                     endforeach;
                     
                     ?>
