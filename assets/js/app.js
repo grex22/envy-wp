@@ -33,8 +33,8 @@ $(document).ready(function(){
   });
   
   $("#scroller_list").simplyScroll({
-    auto: false,
-    speed: 7
+    auto: true,
+    speed: 2
   });
   
   $('#home_hero_slider').carousel({

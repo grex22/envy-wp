@@ -16,6 +16,9 @@
               echo "</div>";
      
             elseif( get_row_layout() == 'tabbed_box' ): 
+              
+              $introblurb = get_sub_field('tab_block_intro');
+              
               if( have_rows('tabs') ):
  
                 // loop through the rows of data
@@ -56,6 +59,7 @@
                   
                     <div class='contentblock'>
                     
+                      <?php if($introblurb) echo $introblurb; ?>
                       <?php echo $tabs_string; ?>
                       <?php echo $tabscontent_string; ?>
 
@@ -67,17 +71,41 @@
                     
                   endif;
                
-              else :
+				
+			  else :
                
                   // no rows found
                
               endif;
      
-            endif;
+            elseif( get_row_layout() == 'headshots_and_bios' ):
+				if( have_rows('headshot_row') ):
+				echo "<div class='contentblock'>";
+				while ( have_rows('headshot_row') ) : the_row();
+					$hs_title = get_sub_field('title');
+					$hs_content = get_sub_field('content');
+					$hs_img = get_sub_field('photo');
+					echo "<div class='row headshot_row'>";
+					if( $hs_img ):
+						echo "<div class='col-md-2 headshot_row_img'><span>".wp_get_attachment_image($hs_img['id'],'headshot_thumbnail')."</span></div>";
+						echo "<div class='col-md-10'>";
+					else:
+						echo "<div class='col-md-12'>";
+					endif;
+					if( $hs_title ) echo "<h3>".$hs_title."</h3>";
+					if( $hs_content ) echo $hs_content;
+					echo "</div>";
+					echo "</div>";
+				endwhile;
+				echo "</div>";
+				endif;
+			endif;
      
         endwhile;
      
-    else :
+	  
+	
+	else :
      
         // no layouts found.. echo the_content maybe??
      

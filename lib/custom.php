@@ -3,6 +3,24 @@
  * Custom functions
  */
  
+function output_vertical_circles_func($atts){
+	extract( shortcode_atts( array(
+		'size' => 'small',
+	), $atts ) );
+	if(get_field('industry_icons','option')):
+		$return = '<div class="text-center more_bottom_margin">';
+		while( has_sub_field('industry_icons', 'option') ):
+		$return .= '<div class="verticals '.get_sub_field('background_color');
+		$return .= " ".$size;
+		$return .= '"><a href="'.get_sub_field('link').'"><h3 class="verticalstitle">'.get_sub_field('industry_name').'</h3><i class="fa '.get_sub_field('industry_icon').'"></i></a></div>';
+		endwhile;
+		$return .= "</div>";
+		return $return;
+	endif;
+}
+
+add_shortcode( 'verticalicons', 'output_vertical_circles_func' );
+ 
 /* Convert hexdec color string to rgb(a) string */
 function hex2rgba($color, $opacity = false) {
 
@@ -43,12 +61,17 @@ function hex2rgba($color, $opacity = false) {
 }
  
 register_nav_menus(array(
-  'footer_sitemap_navigation' => __('Footer Sitemap Menu', 'roots'),
+  'footer_sitemap_navigation' => __('Footer Column 2', 'roots'),
 ));
 
 register_nav_menus(array(
-  'footer_industries_navigation' => __('Footer Industries Menu', 'roots'),
+  'footer_industries_navigation' => __('Footer Column 3', 'roots'),
 ));
+
+register_nav_menus(array(
+  'footer_column_4' => __('Footer Column 4', 'roots'),
+));
+
 
 register_nav_menus(array(
   'more_nav_col_1' => __('More Nav Column 1', 'roots'),

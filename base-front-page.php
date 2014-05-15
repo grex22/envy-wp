@@ -29,7 +29,7 @@
             <?php $slidebg = get_sub_field('slide_background'); ?>
             <?php $highlightimg = get_sub_field('slide_highlight_image'); ?>
             <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="'.$class.'"><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
-            <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].') top center no-repeat;background-size:cover;" id="frosted-'.$i.'">'; ?>
+            <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].')" id="frosted-'.$i.'">'; ?>
             <?php $slides .= '<div class="wrap container">'; ?>
             <?php $slides .= '<div class="row">'; ?>
             <?php $slides .= '<div class="col-lg-6 padding_right">'; ?>
@@ -65,59 +65,58 @@
   </div>
   <div id="home_diagram">
     <div class="wrap container">
+      <?php
+	  	$ig_headline = get_field('infographic_main_headline');
+		if($ig_headline): ?>
       <div class="row narrow_row">
-        <h2>Envysion's powerful suite of tools can help any business track performance, coach employees, and prevent theft.</h2>
+        <h2><?php echo $ig_headline; ?></h2>
       </div>
-      <div class="row narrow_row">
-        <div class="col-lg-3">
-          <div class="diagram_halves"><img src="assets/img/diagram/step1.png"></div>
-          <div class="diagram_halves arrow"><img src="assets/img/diagram/arrow.png"></div>
-          <div class="blurb">
-            <h3>Video + Data</h3>
-            <p>Lorem ipsum quanta pas a dolor quantas imigi tantas coure septum lor quantas imigi tantas coure.</p>
-          </div>
+      <?php endif; ?>
+      <?php $ig_columns = get_field('infographic_columns'); ?>
+      <?php if($ig_columns): ?>
+      	<div class="row narrow_row">
+        <?php $counter = 1; ?>
+        <?php while( has_sub_field('infographic_columns') ): ?>
+        	<div class="col-lg-3">
+              <div class="diagram_halves"><?php echo wp_get_attachment_image(get_sub_field('column_graphic'),'full'); ?></div>
+              <?php if($counter != sizeof($ig_columns)): ?>
+              <div class="diagram_halves arrow"><img src="assets/img/diagram/arrow.png"></div>
+              <?php endif; ?>
+              <div class="blurb">
+                <h3><?php the_sub_field('column_title'); ?></h3>
+                <p><?php the_sub_field('column_text'); ?></p>
+              </div>
+            </div>
+            <?php $counter++; ?>
+        <?php endwhile; ?>
         </div>
-        <div class="col-lg-3">
-          <div class="diagram_halves"><img src="assets/img/diagram/step2.png"></div>
-          <div class="diagram_halves arrow"><img src="assets/img/diagram/arrow.png"></div>
-          <div class="blurb">
-            <h3>Host</h3>
-            <p>Lorem quanta pas a ipsum dolor quantas imigi tantas coure septum lor quantas imigi tantas coure.</p>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="diagram_halves"><img src="assets/img/diagram/step3.png"></div>
-          <div class="diagram_halves arrow"><img src="assets/img/diagram/arrow.png"></div>
-          <div class="blurb">
-            <h3>Analysis</h3>
-            <p>Lorem ipsum dolor quantas quanta pas a imigi tantas coure septum lor quantas imigi tantas coure.</p>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="diagram_halves"><img src="assets/img/diagram/step4.png"></div>
-          <div class="blurb">
-            <h3>Profit</h3>
-            <p>Lorem ipsum dolor quantas imigi tantas coure septum quanta pas a lor quantas imigi tantas coure.</p>
-          </div>
-        </div>
-      </div>
+      <?php endif; ?>
+      
+
+
     </div>
   </div>
   <div id="home_industry_ticker" class="white_bg_w_arrows">
     <div class="wrap container">
-      <h2>Industry Leaders Choose Envysion</h2>
+      <?php $ls_headline = get_field('logos_slider_headline'); ?>
+      <?php if($ls_headline): ?>
+      <h2><?php echo $ls_headline; ?></h2>
+      <?php endif; ?>
       <div id="logo_ticker">
+        <!--
         <div class="simply-scroll-back simply-scroll-btn simply-scroll-btn-left slidecontrol"><i class="fa fa-chevron-left"></i></div>
         <div class="simply-scroll-forward simply-scroll-btn simply-scroll-btn-right slidecontrol"><i class="fa fa-chevron-right"></i></div>
+        -->
         <ul id="scroller_list">
           <?php
+		  	$opt_logos = get_field('logos_to_feature');
             $logos = get_posts(array(
               'post_type'=>'customerlogos',
               'showposts'=>-1,
               'meta_key'=>'_thumbnail_id'
             ));
-            foreach($logos as $l): ?>
-              <li><?php echo get_the_post_thumbnail( $l->ID, 'customer_logo' ); ?></li>
+            foreach($opt_logos as $l): ?>
+              <li><?php echo get_the_post_thumbnail( $l, 'customer_logo' ); ?></li>
             <?php              
             endforeach;
           ?>
@@ -127,12 +126,11 @@
   </div>
   <div id="home_verticals" class="gray_bg_w_arrows">
     <div class="wrap container">
-      <h2>Envysion's powerful suite of tools can help any business track performance, coach employees, and prevent theft.</h2>
-      <div class="verticals blue"><a href="#"><h3>Retail</h3><i class="fa fa-shopping-cart"></i></a></div>
-      <div class="verticals green"><a href="#"><h3>Restaurant</h3><i class="fa fa-cutlery"></i></a></div>
-      <div class="verticals warmgray"><a href="#"><h3>Cinema</h3><i class="fa fa-video-camera"></i></a></div>
-      <div class="verticals magenta"><a href="#"><h3>Convenience Store</h3><i class="fa fa-truck"></i></a></div>
-      <div class="verticals orange"><a href="#"><h3>Hospitality</h3><i class="fa fa-hospital-o"></i></a></div>
+      <?php $vert_headline = get_field('verticals_icon_area_headline'); ?>
+      <?php if($vert_headline): ?>
+      <h2><?php echo $vert_headline; ?></h2>
+      <?php endif; ?>
+      <?php echo output_vertical_circles_func(null); ?>
     </div>
   </div>
   <?php while(has_sub_field("home_page_content")): ?>
@@ -181,13 +179,17 @@
     </div><!-- /.content -->
   </div><!-- /.wrap -->
   
+  
+  <?php $footer_headline = get_field('orange_footer_headline'); ?>
+  <?php if($footer_headline): ?>
   <div class="message-block orangebg">
     <div class="container">
       <div class="col-lg-12">
-        <h2>Envysion's powerful suite of tools can help any business track performance, coach employees, and prevent theft.</h2>
+  		<h2><?php echo $footer_headline; ?></h2>
       </div>
     </div>
-  </div>
+  </div>  
+  <?php endif; ?>
   
   <?php get_template_part('templates/footer'); ?>
   </div>

@@ -13,6 +13,15 @@
     }
   ?>
   <div id="main_wrap">
+  	<?php if(is_home() || is_single() || is_archive() || is_category() || is_tag()): ?>
+    	<div class="textheader">
+        	<div class="container">
+	        	<div class="row"><h1>Envysion Blog</h1>
+                <h2>Insights for improving profitability through video-based business intelligence.</h2>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
     <?php if(get_field('display_page_header')): ?>
     <?php //load up our variables:
           $herostyle = get_field('hero_style');
@@ -29,7 +38,7 @@
           if($herostyle == 'split'):
     ?>
     
-      <div class="page_hero bluebg">
+      <div class="page_hero bluebg" style="background-color:<?php echo $bgcolor; ?>">
         <div class="wrap container extra_padding">
           <div class="row">
             <div class="col-lg-6 page_hero_content">
@@ -55,9 +64,9 @@
       </div>
       <?php elseif($herostyle == 'center'): ?>
       
-      <div class="page_hero bluebg" style="background:url('<?php $bgimgsrc = wp_get_attachment_image_src($bgimg, 'full'); echo $bgimgsrc[0]; ?>');background-position:cover">
-        <?php $bgcolor_opacity = hex2rgba( $bgcolor, 0.8); ?>
-        <div style="background-color:<?php echo $bgcolor_opacity; ?>">
+      <div class="page_hero bluebg" style="background:url('<?php $bgimgsrc = wp_get_attachment_image_src($bgimg, 'full'); echo $bgimgsrc[0]; ?>');background-size:cover;background-position:center center;">
+        <?php if($bgcolor) $bgcolor_opacity = hex2rgba( $bgcolor, 0.8); ?>
+        <div style=" <?php if($bgcolor_opacity) echo 'background-color:'. $bgcolor_opacity; ?> ">
           <style>
             .page_hero.bluebg:after {
               border-color: <?php echo $bgcolor; ?> transparent;
@@ -80,23 +89,39 @@
               </div>
             </div>
           </div>
+          <div class="trapezoid left"></div><div class="trapezoid right"></div>
         </div>
       </div>
       
       <?php endif; ?>
     <?php endif; ?>
-    <div class="wrap container extra_padding" role="document">
+    <div class="wrap container" role="document">
       <div class="content row">
-        <?php if (roots_display_sidebar()) : ?>
-          <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
-            <?php include roots_sidebar_path(); ?>
-          </aside><!-- /.sidebar -->
+        <?php if (roots_display_sidebar()) :
+				$show_blog_sidebar = false;
+			   	if($show_blog_sidebar = is_home() || is_single() || is_archive() || is_category() || is_tag()){
+					$show_blog_sidebar = true;
+				}	
+				if($show_blog_sidebar == false):?>
+                	<aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
+                    <?php get_template_part('templates/sidebar'); ?>
+                    </aside>
+				 <?php endif; ?>
+			
         <?php endif; ?>
+        
         <div class="main <?php echo roots_main_class(); ?>" role="main">
           
           <?php include roots_template_path(); ?>
           
         </div><!-- /.main -->
+        <?php if($show_blog_sidebar): ?>
+        <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
+            <div id='blog_sidebar_wrapper'>
+            <?php get_template_part('templates/blog-sidebar'); ?>
+            </div>
+        </aside>
+        <?php endif; ?>
       </div><!-- /.content -->
     </div><!-- /.wrap -->
     <?php if(get_field('display_page_footer')): ?>

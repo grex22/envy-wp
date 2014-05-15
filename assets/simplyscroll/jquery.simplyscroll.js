@@ -116,6 +116,8 @@ $.simplyScroll.fn.extend({
 		this.$container = this.$clip.parent();
 		this.$btnBack = $('.simply-scroll-back',this.$container);
 		this.$btnForward = $('.simply-scroll-forward',this.$container);
+		
+		
 
 		if (!this.isHorizontal) {
 			this.itemMax = this.$items.eq(0).outerHeight(true); 
@@ -384,6 +386,8 @@ $.simplyScroll.fn.extend({
 	resetPos: function() {
 		this.$clip[0]['scroll' + this.scrollPos] = this.resetPosition;
 	}
+	
+	
 });
 		  
 })(jQuery,window);
