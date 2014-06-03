@@ -1551,6 +1551,28 @@ img.recent_featured{
   
 }
 
+.a2a_img.a2a_i_a2a{
+  display:none;
+}
+.a2a_dd.addtoany_share_save{
+  display: inline-block;
+  background: $blue;
+  background-image: none!important;
+  position: relative;
+  padding: 10px 15px 10px 40px;
+  border-radius: 2px;
+  color: white;
+  
+  &:before{
+    content:"\f14d";
+    font-family:"FontAwesome";
+    color:white;
+    position:absolute;
+    top:50%;
+    left:3px;
+  }
+}
+
 /* ==========================================================================
    Content
    ========================================================================== */
