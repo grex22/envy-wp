@@ -135,6 +135,7 @@
       <h2><?php echo $vert_headline; ?></h2>
       <?php endif; ?>
       <?php echo output_vertical_circles_func(null); ?>
+      <a href="#leadform" class="cta-btn primary">Request a Demo</a>
     </div>
   </div>
   <?php while(has_sub_field("home_page_content")): ?>

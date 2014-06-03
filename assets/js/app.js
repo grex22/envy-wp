@@ -1,4 +1,8 @@
 $(document).ready(function(){
+						   
+  //Global Fancybox trigger for leadform
+  $("a[href='#leadform']").fancybox();
+  
   $("#menu-primary-navigation").append('<li class="more_link_li"><a href="#" id="more-link">More&hellip;</a></li>');
   $("#menu-primary-navigation").append('<li class="more_link_li_mobile"><a href="#" id="more-overlay-link">More&hellip;</a></li>');
   
