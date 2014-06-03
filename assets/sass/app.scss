@@ -1573,6 +1573,29 @@ img.recent_featured{
   }
 }
 
+p.postcta{
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 20px 20px 20px 90px;
+  font-size: 16px;
+  position:relative;
+  
+  &:before{
+    font-family:"FontAwesome";
+    content:"\f0eb";
+    color:#ddd;
+    font-size: 54px;
+    top: 35px;
+    left: 32px;
+    position: absolute;
+  }
+  
+  a{
+    display: inline-block;
+    margin-top: 8px;
+  }
+}
+
 /* ==========================================================================
    Content
    ========================================================================== */
