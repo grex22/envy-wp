@@ -4,7 +4,35 @@
  */
  
 	
- 
+// Resources Get_Posts Function
+
+function get_resource( $post_type, $taxonomy_term = false ) {
+	$base_args = array(
+		'posts_per_page'   => 10,
+		'category'         => '',
+		'post_type'        => $post_type,
+		'post_status'      => 'publish'
+	);
+
+	if ( $taxonomy_term ) {
+		$additional_args = array(
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'industry',
+					'field' => 'slug',
+					'terms' => $taxonomy_term
+				)
+			)
+		);
+	} else {
+		$additional_args = array();
+	}
+
+	$args = array_merge( $base_args, $additional_args );
+
+	return get_posts( $args );
+}
+
  
 //IFrame Shortcode
 add_shortcode( 'iframe' , 'mycustom_shortcode_iframe' );
