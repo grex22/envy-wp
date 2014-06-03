@@ -7,10 +7,7 @@
         
       <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php if($post->post_type == 'post') get_template_part('templates/entry-meta'); ?>
-      <a class="share_buttons" id="share_twitter" href="http://twitter.com/share?url=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>" target="_blank"><i class="fa fa-twitter"></i> tweet</a>
-      <a class="share_buttons" id="share_facebook" href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(); ?>" target="_blank"><i class="fa fa-facebook"></i> share</a>
-      <a class="share_buttons" id="share_email" href="mailto:?Subject=<?php echo get_site_url(); ?>&Body=<?php echo get_permalink(); ?>" target="_blank"><i class="fa fa-envelope"></i> email</a>
-      <br><br>
+      
       <?php if(has_post_thumbnail()):?>
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php
             the_post_thumbnail('blog_recent_featured', array('class'=>'more_bottom_margin'));?>
@@ -19,13 +16,7 @@
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
-      
-      <br>
-      <a class="share_buttons" id="share_twitter" href="http://twitter.com/share?url=<?php echo urlencode(get_permalink()); ?>&amp;text=<?php echo urlencode(get_the_title()); ?>" target="_blank"><i class="fa fa-twitter"></i> tweet</a>
-      <a class="share_buttons" id="share_facebook" href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(); ?>" target="_blank"><i class="fa fa-facebook"></i> share</a>
-      <a class="share_buttons" id="share_email" href="mailto:?Subject=<?php echo get_site_url(); ?>&Body=<?php echo get_permalink(); ?>" target="_blank"><i class="fa fa-envelope"></i> email</a>
-      <br><br>
-      
+           
       <?php
 	  	if($post->post_type == 'post'):
 			$hide = get_field('hide_author_information');
