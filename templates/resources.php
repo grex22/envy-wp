@@ -4,10 +4,12 @@ if( is_tax('industry') ) :
 
   $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
   $tax_term_slug = $term->slug;
+  $posts_per_page = -1;
 
 else :
 
   $tax_term_slug = false;
+  $posts_per_page = 10;
   while (have_posts()) : the_post();
     the_content();
   endwhile;
@@ -16,9 +18,20 @@ endif;
 
 ?>
 
-<h2><i class="fa fa-file fa-fw"></i> White Papers <a class="pull-right" href="<?php echo home_url('/whitepaper/'); ?>">view all</a></h2>
 <?php
-  $whitepapers = get_resource( 'whitepaper', $tax_term_slug );
+  $whitepapers = get_resource( 'whitepaper', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $whitepapers ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-file fa-fw"></i> White Papers
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/whitepaper/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $whitepapers as $whitepaper )
   {
     ?>
@@ -31,9 +44,20 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-book fa-fw"></i> Case Studies <a class="pull-right" href="<?php echo home_url('/casestudy/'); ?>">view all</a></h2>
 <?php
-  $casestudies = get_resource( 'casestudy', $tax_term_slug );
+  $casestudies = get_resource( 'casestudy', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $casestudies ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-book fa-fw"></i> Case Studies 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/casestudy/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $casestudies as $casestudy )
   {
     ?>
@@ -46,9 +70,20 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-video-o fa-fw"></i> Videos <a class="pull-right" href="<?php echo home_url('/video/'); ?>">view all</a></h2>
 <?php
-  $videos = get_resource( 'video', $tax_term_slug );
+  $videos = get_resource( 'video', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $videos ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-file-video-o fa-fw"></i> Videos 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/video/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $videos as $video )
   {
     ?>
@@ -61,9 +96,20 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-desktop fa-fw"></i> Webinars <a class="pull-right" href="<?php echo home_url('/webinars/'); ?>">view all</a></h2>
 <?php
-  $webinars = get_resource( 'webinars', $tax_term_slug );
+  $webinars = get_resource( 'webinars', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $webinars ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-desktop fa-fw"></i> Webinars 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/webinars/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $webinars as $webinar )
   {
     ?>
@@ -76,9 +122,20 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-audio-o fa-fw"></i> Podcasts <a class="pull-right" href="<?php echo home_url('/podcasts/'); ?>">view all</a></h2>
 <?php
-  $podcasts = get_resource( 'podcasts', $tax_term_slug );
+/*  $podcasts = get_resource( 'podcasts', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $podcasts ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-file-audio-o fa-fw"></i> Podcasts 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/podcasts/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $podcasts as $podcast )
   {
     ?>
@@ -88,12 +145,23 @@ endif;
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $podcast->ID); ?></p>
     </div>
     <?php
-  }
+  }*/
 ?>
 
-<h2><i class="fa fa-wrench fa-fw"></i> Tools <a class="pull-right" href="<?php echo home_url('/tools/'); ?>">view all</a></h2>
 <?php
-  $tools = get_resource( 'tools', $tax_term_slug );
+  $tools = get_resource( 'tools', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $tools ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-wrench fa-fw"></i> Tools 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/tools/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $tools as $tool )
   {
     ?>
@@ -106,9 +174,20 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-briefcase fa-fw"></i> Kits <a class="pull-right" href="<?php echo home_url('/kits/'); ?>">view all</a></h2>
 <?php
-  $kits = get_resource( 'kits', $tax_term_slug );
+  $kits = get_resource( 'kits', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $kits ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-briefcase fa-fw"></i> Kits 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/kits/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $kits as $kit )
   {
     ?>
@@ -121,13 +200,26 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-text fa-fw"></i> Reports <a class="pull-right" href="<?php echo home_url('/reports/'); ?>">view all</a></h2>
 <?php
-  $reports = get_resource( 'reports', $tax_term_slug );
+  $reports = get_resource( 'reports', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $reports ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-file-text fa-fw"></i> Reports 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/reports/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $reports as $report )
   {
     ?>
     <div>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank"><?php echo $slick->post_title; ?></a>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank" class="medium secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
       <a href="<?php echo post_permalink( $report->ID ); ?>"><?php echo $report->post_title; ?></a>
       <a href="<?php echo post_permalink( $report->ID ); ?>" class="medium secondary pull-right"><i class="fa fa-files-o"></i> View</a>
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $report->ID); ?></p>
@@ -136,15 +228,26 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-image-o fa-fw"></i> Marketing Slicks <a class="pull-right" href="<?php echo home_url('/slicks/'); ?>">view all</a></h2>
 <?php
-  $slicks = get_resource( 'slicks', $tax_term_slug );
+  $slicks = get_resource( 'slicks', $tax_term_slug, $posts_per_page );
+
+  if ( ! empty( $slicks ) ) :
+    ?>
+    <h2>
+      <i class="fa fa-file-image-o fa-fw"></i> Marketing Slicks 
+      <?php if ( ! $tax_term_slug ) : ?>
+        <a class="pull-right" href="<?php echo home_url('/slicks/'); ?>">view all</a>
+      <?php endif; ?>
+    </h2>
+    <?php
+  endif;
+
   foreach ( $slicks as $slick )
   {
     ?>
     <div>
-      <a href="<?php echo post_permalink( $slick->ID ); ?>"><?php echo $slick->post_title; ?></a>
-      <a href="<?php echo post_permalink( $slick->ID ); ?>" class="medium secondary pull-right"><i class="fa fa-files-o"></i> View</a>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank"><?php echo $slick->post_title; ?></a>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank" class="medium secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $slick->ID); ?></p>
     </div>
     <?php
