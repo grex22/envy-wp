@@ -61,6 +61,8 @@
 							  <?php the_excerpt(); ?>
                             </div>
                           <?php get_template_part('templates/entry-meta'); ?>
+                          
+                          <?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
                         </header>
                         
                      </div>
@@ -82,7 +84,9 @@
                       <?php the_excerpt(); ?>
                     </div>
                     <?php get_template_part('templates/entry-meta'); ?>
-
+                    
+                    <?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
+					</header>
                   </article>
   			<?php endif;
 	endwhile; ?>

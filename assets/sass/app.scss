@@ -1551,6 +1551,51 @@ img.recent_featured{
   
 }
 
+.a2a_img.a2a_i_a2a{
+  display:none;
+}
+.a2a_dd.addtoany_share_save{
+  display: inline-block;
+  background: $blue;
+  background-image: none!important;
+  position: relative;
+  padding: 5px 17px 5px 40px;
+  border-radius: 2px;
+  color: white;
+  
+  &:before{
+    content:"\f14d";
+    font-family:"FontAwesome";
+    color:white;
+    position:absolute;
+    top: 5px;
+    left: 14px;
+  }
+}
+
+p.postcta{
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 20px 20px 20px 90px;
+  font-size: 16px;
+  position:relative;
+  
+  &:before{
+    font-family:"FontAwesome";
+    content:"\f0eb";
+    color:#ddd;
+    font-size: 54px;
+    top: 35px;
+    left: 32px;
+    position: absolute;
+  }
+  
+  a{
+    display: inline-block;
+    margin-top: 8px;
+  }
+}
+
 /* ==========================================================================
    Content
    ========================================================================== */
