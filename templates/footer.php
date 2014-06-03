@@ -48,6 +48,6 @@
       </div>
   </footer>
 </div>
-
+<?php get_template_part('templates/eloqua','form'); ?>
 
 <?php wp_footer(); ?>

@@ -1,12 +1,12 @@
 $(document).ready(function(){
-  $("#menu-primary-navigation").append('<li><a href="#" id="more-link">More</a></li>');
+  $("#menu-primary-navigation").append('<li class="more_link_li"><a href="#" id="more-link">More&hellip;</a></li>');
+  $("#menu-primary-navigation").append('<li class="more_link_li_mobile"><a href="#" id="more-overlay-link">More&hellip;</a></li>');
   
   var current_body_padding_top = $('body').css('padding-top');
   var more_nav_animation_speed = 200;
 
   $("#more-link").click(function(e){
     var current_body_padding_top = $('body').css('padding-top');
-    console.log(current_body_padding_top);
     e.preventDefault();
     $('body').toggleClass('more-nav-expanded');
     $("#more-nav").slideToggle(more_nav_animation_speed,'swing');
@@ -15,6 +15,10 @@ $(document).ready(function(){
     }else{
       $('body').animate({ paddingTop: current_body_padding_top },more_nav_animation_speed,'swing');
     }
+  });
+  
+  $("#more-overlay-link").click(function(e){
+	$("#more-nav-overlay").fadeToggle(100);							 
   });
 
   $(document).mouseup(function (e){
@@ -25,12 +29,19 @@ $(document).ready(function(){
     }
   });
 
-  $("#more-nav #close").click(function(e){
+  $("#more-nav .close_mn").click(function(e){
     e.preventDefault();
     $("#more-nav").slideToggle(more_nav_animation_speed,'swing');
     $('body').toggleClass('more-nav-expanded');
     $('body').animate({ paddingTop: current_body_padding_top },more_nav_animation_speed,'swing');
   });
+  
+  $("#more-nav-overlay .close_mn").click(function(e){
+    e.preventDefault();
+    $("#more-nav-overlay").fadeOut(100);
+  });
+  
+  
   
   $("#scroller_list").simplyScroll({
     auto: true,
@@ -41,29 +52,40 @@ $(document).ready(function(){
     interval: 6000
   })
   
+  /*
   jQuery('ul.nav li.dropdown').hover(function() {
-    jQuery(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn();
-  }, function() {
-    jQuery(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut();
+    jQuery(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn(100);
+  	}, function() {
+    	jQuery(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut(100);
   });
-  jQuery('ul.nav li.dropdown>a').click(function(e) {
-    e.preventDefault();
-    window.location.assign($(this).attr('href'));
-  });
+  */
+  jQuery('.navbar-collapse ul.nav li.dropdown>a').click(function(e) {
+	if($(this).closest('.navbar-collapse').hasClass('in')){
+		e.preventDefault();
+		console.log('this will NOT go to a new page');
+	}else{
+		e.preventDefault();
+		console.log('this will take to a new page');
+    	window.location.assign($(this).attr('href'));
+	}
+    
+  });  
   
-  if($("#announcement_wrap").length > 0){
+  
+  
+  
+  if($("#announcement_wrap").length > 0 && $(window).width() > 767){ //Let's not show our announcement box if they're on a phone...
     if($("#announcement_wrap").is(':hidden')){
       $("#announcement_wrap").delay(2000).slideToggle(500);
       var elemheight = parseInt($("#announcement_wrap").css('height'), 10);
       var bodypad = parseInt($("body").css('padding-top'), 10);
-      console.log(elemheight + bodypad);
       $('body').delay(2000).animate({paddingTop: elemheight + bodypad },500);
     }
     
     $("#announcement_close").click(function(e){
       e.preventDefault();
-      $("#announcement_wrap").slideToggle(500);
-      $('body').animate({paddingTop: 61 },500);
+      $("#announcement_wrap").slideToggle(300);
+      $('body').animate({paddingTop: 61 },300);
     });
   }
   

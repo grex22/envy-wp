@@ -99,6 +99,62 @@
 				endwhile;
 				echo "</div>";
 				endif;
+			elseif( get_row_layout() == 'video_thumbnails_and_blurbs' ):
+				if( have_rows('video_row') ):
+				echo "<div class='contentblock'>";
+				while ( have_rows('video_row') ) : the_row();
+					$v_title = get_sub_field('title');
+					$v_content = get_sub_field('content');
+					$v_service = get_sub_field('video_service');
+					$v_player = false;
+					switch($v_service):
+						case "Youtube":
+							$yid = get_sub_field('youtube_id');
+							if($yid):
+								$v_player = '<iframe width="100%" height="180" src="//www.youtube.com/embed/'.$yid.'?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>';
+							endif;
+						break;
+						case "Wistia":
+							$wid = get_sub_field('wistia_id');
+							if($wid):
+								//  Initiate curl
+								$url = "http://fast.wistia.com/oembed?url=".urlencode("http://home.wistia.com/medias/".$wid."?embedType=api&handle=oEmbedVideo&width=220");
+								
+								$ch = curl_init();
+								// Disable SSL verification
+								curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+								// Will return the response, if false it print the response
+								curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+								// Set the url
+								curl_setopt($ch, CURLOPT_URL,$url);
+								// Execute
+								$result=curl_exec($ch);
+								// Closing
+								curl_close($ch);
+								$data = json_decode($result, true);
+								
+								$v_player = $data['html'];
+								$thumb = $data['thumbnail_url'];
+								
+								$v_player = '<a href="http://fast.wistia.net/embed/iframe/'.$wid.'?autoPlay=true&controlsVisibleOnLoad=true&playButton=false&playerColor=36ABFF&popover=true&version=v1&videoHeight=360&videoWidth=640" class="wistiathumb wistia-popover[height=360,playerColor=F36F36,width=640]"><img src="'.$thumb.'&image_play_button=1&image_play_button_color=36ABFFe0" alt="" /></a>';
+								
+							endif;
+						break;
+					endswitch;
+					echo "<div class='row headshot_row'>";
+					if( $v_player ):
+						echo "<div class='col-md-4'>".$v_player."</div>";
+						echo "<div class='col-md-8'>";
+					else:
+						echo "<div class='col-md-12'>";
+					endif;
+					if( $v_title ) echo "<h3>".$v_title."</h3>";
+					if( $v_content ) echo $v_content;
+					echo "</div>";
+					echo "</div>";
+				endwhile;
+				echo "</div>";
+				endif;
 			endif;
      
         endwhile;

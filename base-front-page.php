@@ -32,13 +32,13 @@
             <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].')" id="frosted-'.$i.'">'; ?>
             <?php $slides .= '<div class="wrap container">'; ?>
             <?php $slides .= '<div class="row">'; ?>
-            <?php $slides .= '<div class="col-lg-6 padding_right">'; ?>
+            <?php $slides .= '<div class="col-md-6 padding_right">'; ?>
             <?php echo "<style>#frosted-".$i.":before{background-image: url(\'data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20width%3D%221920%22%20height%3D%221120%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cimage%20xlink%3Ahref%3D%22http%3A%2F%2Fplacekitten.com%2F1920%2F1120%22%20width%3D%221920%22%20height%3D%221120%22%20filter%3D%22url%28%23blur%29%22%2F%3E%3C%2Fsvg%3E\'), url('".$slidebg[url]."');
             }</style>"; ?>
             <?php $slides .= '<h2>'.get_sub_field('slide_headline').'</h2>'; ?>
             <?php $slides .= '<p>'.get_sub_field('slide_blurb').'</p>'; ?>
             <?php $slides .= '</div>'; ?>
-            <?php $slides .= '<div class="col-lg-6 text-center">'; ?>
+            <?php $slides .= '<div class="col-md-6 text-center">'; ?>
             <?php if($highlightimg) $slides .= '<img src="'.$highlightimg[url].'">'; ?>
             <?php $slides .= '</div>'; ?>
             <?php $slides .= '</div>'; ?>
@@ -49,11 +49,15 @@
           
           <?php endwhile; ?>
           
-          <?php $controls .='<li class="watch">Watch <i class="fa fa-play-circle"></i></li></ol>'; ?>
+          <?php 
+		  //Old watch button
+		  $controls .='<li class="watch">Watch <i class="fa fa-play-circle-o visible-xs"></i> <i class="fa fa-play-circle"></i></li></ol>'; 
+		  //$controls .='<li class="watch no_icon"><a href="'.get_permalink(8).'">Products</a></li></ol>';
+		  ?>
           <?php $slides .='</div>'; ?>
 
         <?php endif; ?>
-        <div class="wrap container"><div class="row"><div class="col-lg-12 indicators_wrap">
+        <div class="wrap container"><div class="row"><div class="col-md-12 indicators_wrap">
         <?php echo $controls; ?>
         </div></div></div>
         <?php echo $slides; ?>
@@ -77,7 +81,7 @@
       	<div class="row narrow_row">
         <?php $counter = 1; ?>
         <?php while( has_sub_field('infographic_columns') ): ?>
-        	<div class="col-lg-3">
+        	<div class="col-md-3 text-center-sm text-center-xs">
               <div class="diagram_halves"><?php echo wp_get_attachment_image(get_sub_field('column_graphic'),'full'); ?></div>
               <?php if($counter != sizeof($ig_columns)): ?>
               <div class="diagram_halves arrow"><img src="assets/img/diagram/arrow.png"></div>
@@ -139,12 +143,12 @@
         <div class="wrap container">
           <div class="row">
             <?php if(get_sub_field('block_alignment') == "Left"): ?>
-              <div class="col-lg-5 hidden-sm">
+              <div class="col-md-5 hidden-sm">
                 <?php $imgid = get_sub_field('callout_picture'); ?>
                 <?php echo wp_get_attachment_image($imgid,'call_out_block_image',false,array('class'=>"polaroid")); ?>
               </div>
             <?php endif; ?>
-            <div class="col-lg-7 more_<?php echo strtolower(get_sub_field('block_alignment')); ?>_padding">
+            <div class="col-md-7 more_<?php echo strtolower(get_sub_field('block_alignment')); ?>_padding">
               <h2><?php the_sub_field('headline'); ?></h2>
               <p><?php the_sub_field('excerpt'); ?></p>
               <?php if(get_sub_field('primary_button_text')):?>
@@ -155,7 +159,7 @@
               <?php endif; ?>
             </div>
             <?php if(get_sub_field('block_alignment') == "Right"): ?>
-              <div class="col-lg-5 hidden-sm">
+              <div class="col-md-5 hidden-sm">
                 <?php $imgid = get_sub_field('callout_picture'); ?>
                 <?php echo wp_get_attachment_image($imgid,'call_out_block_image',false,array('class'=>"polaroid")); ?>
               </div>
@@ -184,7 +188,7 @@
   <?php if($footer_headline): ?>
   <div class="message-block orangebg">
     <div class="container">
-      <div class="col-lg-12">
+      <div class="col-md-12">
   		<h2><?php echo $footer_headline; ?></h2>
       </div>
     </div>

@@ -32,11 +32,14 @@ function roots_scripts() {
   wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '2a3e700c4c6e3d70a95b00241a845695', true);
   wp_register_script('custom_scripts', get_template_directory_uri() . '/assets/js/app.js', false, null, true);
   wp_register_script('simplyscroll', get_template_directory_uri() . '/assets/simplyscroll/jquery.simplyscroll.js', false, null, true);
+  wp_register_script('wistiapopover', '//fast.wistia.net/static/popover-v1.js', false, null, false);
+  
   wp_enqueue_script('modernizr');
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_scripts');
   wp_enqueue_script('custom_scripts');
   wp_enqueue_script('simplyscroll');
+  wp_enqueue_script('wistiapopover');
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 

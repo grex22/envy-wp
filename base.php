@@ -16,7 +16,7 @@
   	<?php if(is_home() || is_single() || is_archive() || is_category() || is_tag()): ?>
     	<div class="textheader">
         	<div class="container">
-	        	<div class="row"><h1>Envysion Blog</h1>
+	        	<div class="row"><!--<h1><a href="<?php echo get_permalink(4); ?>">Blog</a></h1>-->
                 <h2>Insights for improving profitability through video-based business intelligence.</h2>
                 </div>
             </div>
@@ -28,8 +28,10 @@
           $headline = get_field('hero_headline');
           $blurb = get_field('hero_blurb');
           $button_p_text = get_field('hero_button');
+		  $button_p_link_type = get_field('hero_button_link_type_primary');
           $button_p_link = get_field('hero_button_link');
           $button_s_text = get_field('hero_button_secondary');
+		  $button_s_link_type = get_field('hero_button_link_type_secondary');
           $button_s_link = get_field('hero_button_secondary_link');
           $bgimg = get_field('hero_image_background');
           $highlightimg = get_field('hero_image');
@@ -41,7 +43,7 @@
       <div class="page_hero bluebg" style="background-color:<?php echo $bgcolor; ?>">
         <div class="wrap container extra_padding">
           <div class="row">
-            <div class="col-lg-6 page_hero_content">
+            <div class="col-xs-6 page_hero_content">
               <h1><?php
                 if($headline) echo $headline;
                 else the_title()
@@ -54,7 +56,7 @@
                 <a href="<?php echo $button_s_link; ?>" class="cta-btn"><?php echo $button_s_text; ?></a>
               <?php endif; ?>
             </div>
-            <div class="col-lg-6 page_hero_graphic">
+            <div class="col-xs-6 page_hero_graphic">
               <?php if($highlightimg): ?>
                 <?php echo wp_get_attachment_image($highlightimg,'full'); ?>
               <?php endif; ?>
@@ -81,10 +83,12 @@
                 ?></h1>
                 <?php if($blurb): ?><p><?php echo $blurb; ?></p><?php endif; ?>
                 <?php if($button_p_text): ?>
-                  <a href="<?php echo $button_p_link; ?>" class="cta-btn primary"><?php echo $button_p_text; ?></a>
+                  <?php if($button_p_link_type == 'rdmodal') $button_p_link = '#leadform'; ?>
+                  <a href="<?php echo $button_p_link; ?>" class="<?php if($button_p_link_type == 'rdmodal') echo "fancybox "; ?>cta-btn primary"><?php echo $button_p_text; ?></a>
                 <?php endif; ?>
                 <?php if($button_s_text): ?>
-                  <a href="<?php echo $button_s_link; ?>" class="cta-btn"><?php echo $button_s_text; ?></a>
+                  <?php if($button_s_link_type == 'rdmodal') $button_s_link = '#leadform'; ?>
+                  <a href="<?php echo $button_s_link; ?>" class="<?php if($button_s_link_type == 'rdmodal') echo "fancybox "; ?>cta-btn"><?php echo $button_s_text; ?></a>
                 <?php endif; ?>
               </div>
             </div>

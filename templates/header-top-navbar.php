@@ -1,9 +1,48 @@
+<div id="more-nav-overlay" class="more-nav-menu">
+<div class="container">
+  <a href="#" class="close_mn"><i class="fa fa-times-circle"></i></a>
+  <div class="row">
+    <div class="col-sm-3">
+      <h4>Company</h4>
+      <?php
+        if (has_nav_menu('more_nav_col_1')) :
+          wp_nav_menu(array('theme_location' => 'more_nav_col_1', 'menu_class' => 'more_nav_nav'));
+        endif;
+      ?>
+    </div>
+    <div class="col-sm-3">
+      <h4>Products</h4>
+      <?php
+        if (has_nav_menu('more_nav_col_2')) :
+          wp_nav_menu(array('theme_location' => 'more_nav_col_2', 'menu_class' => 'more_nav_nav'));
+        endif;
+      ?>
+    </div>
+    <div class="col-sm-3">
+      <h4>Solutions</h4>
+      <?php
+        if (has_nav_menu('more_nav_col_3')) :
+          wp_nav_menu(array('theme_location' => 'more_nav_col_3', 'menu_class' => 'more_nav_nav'));
+        endif;
+      ?>
+    </div>
+    <div class="col-sm-3">
+      <h4>More...</h4>
+      <?php
+        if (has_nav_menu('more_nav_col_4')) :
+          wp_nav_menu(array('theme_location' => 'more_nav_col_4', 'menu_class' => 'more_nav_nav'));
+        endif;
+      ?>
+    </div>
+  </div>
+</div>
+</div>
 <header class="banner navbar navbar-default navbar-fixed-top" role="banner">
-  <div id="more-nav">
+  <div id="more-nav" class="more-nav-menu">
     <div class="container">
-      <a href="#" id="close"><i class="fa fa-times-circle"></i></a>
+      <a href="#" class="close_mn"><i class="fa fa-times-circle"></i></a>
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <h4>Company</h4>
           <?php
             if (has_nav_menu('more_nav_col_1')) :
@@ -11,7 +50,7 @@
             endif;
           ?>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <h4>Products</h4>
           <?php
             if (has_nav_menu('more_nav_col_2')) :
@@ -19,7 +58,7 @@
             endif;
           ?>
         </div>
-        <div class="col-lg-3">
+        <div class="col-sm-3">
           <h4>Solutions</h4>
           <?php
             if (has_nav_menu('more_nav_col_3')) :
@@ -27,8 +66,8 @@
             endif;
           ?>
         </div>
-        <div class="col-lg-3">
-          <h4>Contact us</h4>
+        <div class="col-sm-3">
+          <h4>More...</h4>
           <?php
             if (has_nav_menu('more_nav_col_4')) :
               wp_nav_menu(array('theme_location' => 'more_nav_col_4', 'menu_class' => 'more_nav_nav'));
@@ -49,7 +88,7 @@
       <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
     </div>
     <ul class="nav navbar-nav pull-right hidden-sm hidden-xs">
-      <li class="gbb-client-login"><a href="#"><i class="fa fa-user"></i>&nbsp; Client Login </a></li>
+      <li class="gbb-client-login"><a href="https://video.envysion.com/auth/login.jsp"><i class="fa fa-user"></i>&nbsp; Client Login </a></li>
     </ul>
     <nav class="collapse navbar-collapse" role="navigation">
       <?php
@@ -61,14 +100,14 @@
   </div>
   
   
-  <?php if(is_front_page() && get_field('show_homepage_annoucement','option')): //this will change! ?>
+  <?php if(is_front_page() && get_field('show_homepage_annoucement','option')): ?>
     <div id="announcement_wrap">
       <div class="container">
         <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="pull-left">
           <?php echo get_field('announcement_message','option'); ?>
           </div>
-          <a href="#" id="announcement_close" class="cta-btn small pull-right"><i class="fa fa-times"></i> Close</a>
+          <a href="#" id="announcement_close" class="cta-btn small pull-right"><i class="fa fa-times"></i></a>
           <a href="<?php echo get_field('announcement_button_link','option'); ?>" class="cta-btn small primary pull-right"><i class="fa fa-play-circle"></i> <?php echo get_field('announcement_button_text','option'); ?></a>
           <div class="clearfix"></div>
         </div>

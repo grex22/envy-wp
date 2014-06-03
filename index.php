@@ -41,7 +41,7 @@
 	endif;*/
 
 ?>
-<h6>Latest Article</h6>
+<h6><strong>Latest Article</strong></h6>
 <?php $is_first_post = true; ?>
 
 <?php while (have_posts()) : the_post();
@@ -73,9 +73,9 @@
             	<article <?php post_class(); ?>>
                     <header>
                     	<?php if(has_post_thumbnail()): ?>
-                        		<div class="blog_thumbnail_wrap pull-right"><?php
-								the_post_thumbnail('blog_thumbnail', array('class'=>'blog_thumbnail_img'));
-								echo "</div>";
+                        		<div class=""><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php
+								the_post_thumbnail('blog_recent_featured', array('class'=>'recent_featured'));
+								echo "</a></div>";
 							  endif; ?>
 							 
                       <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
