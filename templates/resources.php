@@ -16,7 +16,7 @@ endif;
 
 ?>
 
-<h2><i class="fa fa-file fa-fw"></i> White Papers <a class="pull-right" href="/whitepaper">view all</a></h2>
+<h2><i class="fa fa-file fa-fw"></i> White Papers <a class="pull-right" href="<?php echo home_url('/whitepaper/'); ?>">view all</a></h2>
 <?php
   $whitepapers = get_resource( 'whitepaper', $tax_term_slug );
   foreach ( $whitepapers as $whitepaper )
@@ -30,7 +30,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-book fa-fw"></i> Case Studies <a class="pull-right" href="/casestudy">view all</a></h2>
+<h2><i class="fa fa-book fa-fw"></i> Case Studies <a class="pull-right" href="<?php echo home_url('/casestudy/'); ?>">view all</a></h2>
 <?php
   $casestudies = get_resource( 'casestudy', $tax_term_slug );
   foreach ( $casestudies as $casestudy )
@@ -44,7 +44,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-video-o fa-fw"></i> Videos <a class="pull-right" href="/video">view all</a></h2>
+<h2><i class="fa fa-file-video-o fa-fw"></i> Videos <a class="pull-right" href="<?php echo home_url('/video/'); ?>">view all</a></h2>
 <?php
   $videos = get_resource( 'video', $tax_term_slug );
   foreach ( $videos as $video )
@@ -58,7 +58,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-desktop fa-fw"></i> Webinars <a class="pull-right" href="/webinars">view all</a></h2>
+<h2><i class="fa fa-desktop fa-fw"></i> Webinars <a class="pull-right" href="<?php echo home_url('/webinars/'); ?>">view all</a></h2>
 <?php
   $webinars = get_resource( 'webinars', $tax_term_slug );
   foreach ( $webinars as $webinar )
@@ -72,7 +72,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-audio-o fa-fw"></i> Podcasts <a class="pull-right" href="/podcasts">view all</a></h2>
+<h2><i class="fa fa-file-audio-o fa-fw"></i> Podcasts <a class="pull-right" href="<?php echo home_url('/podcasts/'); ?>">view all</a></h2>
 <?php
   $podcasts = get_resource( 'podcasts', $tax_term_slug );
   foreach ( $podcasts as $podcast )
@@ -86,7 +86,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-wrench fa-fw"></i> Tools <a class="pull-right" href="/tools">view all</a></h2>
+<h2><i class="fa fa-wrench fa-fw"></i> Tools <a class="pull-right" href="<?php echo home_url('/tools/'); ?>">view all</a></h2>
 <?php
   $tools = get_resource( 'tools', $tax_term_slug );
   foreach ( $tools as $tool )
@@ -100,7 +100,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-briefcase fa-fw"></i> Kits <a class="pull-right" href="/kits">view all</a></h2>
+<h2><i class="fa fa-briefcase fa-fw"></i> Kits <a class="pull-right" href="<?php echo home_url('/kits/'); ?>">view all</a></h2>
 <?php
   $kits = get_resource( 'kits', $tax_term_slug );
   foreach ( $kits as $kit )
@@ -114,7 +114,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-text fa-fw"></i> Reports <a class="pull-right" href="/reports">view all</a></h2>
+<h2><i class="fa fa-file-text fa-fw"></i> Reports <a class="pull-right" href="<?php echo home_url('/reports/'); ?>">view all</a></h2>
 <?php
   $reports = get_resource( 'reports', $tax_term_slug );
   foreach ( $reports as $report )
@@ -128,7 +128,7 @@ endif;
   }
 ?>
 
-<h2><i class="fa fa-file-image-o fa-fw"></i> Marketing Slicks <a class="pull-right" href="/slicks">view all</a></h2>
+<h2><i class="fa fa-file-image-o fa-fw"></i> Marketing Slicks <a class="pull-right" href="<?php echo home_url('/slicks/'); ?>">view all</a></h2>
 <?php
   $slicks = get_resource( 'slicks', $tax_term_slug );
   foreach ( $slicks as $slick )
