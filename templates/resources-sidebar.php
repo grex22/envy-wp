@@ -1,5 +1,5 @@
 <?php if( !is_page('resources') ) : ?>
-	<a href="/resources/" class="cta-btn medium primary"><i class="fa fa-caret-square-o-left"></i> Overview</a>
+	<a href="<?php echo home_url('/resources/'); ?>" class="cta-btn medium primary"><i class="fa fa-caret-square-o-left"></i> Overview</a>
 <?php endif; ?>
 <h2>View by Industry:</h2>
 <ul class="menu">
