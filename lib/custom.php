@@ -5,10 +5,10 @@
  
 	
 // Resources Get_Posts Function
+function get_resource( $post_type, $taxonomy_term = false, $posts_per_page = 10 ) {
 
-function get_resource( $post_type, $taxonomy_term = false ) {
 	$base_args = array(
-		'posts_per_page'   => 10,
+		'posts_per_page'   => $posts_per_page,
 		'category'         => '',
 		'post_type'        => $post_type,
 		'post_status'      => 'publish'
@@ -32,7 +32,6 @@ function get_resource( $post_type, $taxonomy_term = false ) {
 
 	return get_posts( $args );
 }
-
  
 //IFrame Shortcode
 add_shortcode( 'iframe' , 'mycustom_shortcode_iframe' );
