@@ -1335,6 +1335,14 @@ img.polaroid{
     
     i{font-size:22px;vertical-align:middle}
   }
+  &.small{
+    min-width:75px;
+    padding:3px 10px;
+    font-size:14px!important;
+    font-weight:300;
+    
+    i{font-size:12px;vertical-align:middle;margin-right:8px;}
+  }  
   & + .cta-btn{margin-left:20px;}
   
   &:hover{
@@ -1674,6 +1682,24 @@ p.postcta{
 
 .content_block .nav-tabs{
   margin:10px 0 15px;
+}
+h2.resource_type{
+  border-bottom: 3px solid #f4f4f4;
+  padding-bottom: 14px;
+  margin-top: 40px!important;
+  margin-bottom: 15px!important;
+}
+.resource_row{
+  margin: 15px 0 25px 0;
+  padding-top: 17px;
+  
+  & + .resource_row{
+    border-top: 1px dotted #f1f1f1;
+  }
+  
+  .cta-btn.pull-right{
+    margin-left:20px;
+  }
 }
 
 

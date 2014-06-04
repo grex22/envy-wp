@@ -1,4 +1,10 @@
-<?php get_template_part('templates/head'); ?>
+<?php
+
+get_template_part('templates/head');
+
+$resources_post_types = array('casestudy','whitepaper','video','webinars','podcasts','tools','kits','reports','slicks');
+
+?>
 <body <?php body_class(); ?>>
 
   <!--[if lt IE 8]><div class="alert alert-warning"><?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'roots'); ?></div><![endif]-->
@@ -13,7 +19,8 @@
     }
   ?>
   <div id="main_wrap">
-  	<?php if(is_home() || is_single() || is_archive() || is_category() || is_tag()): ?>
+  
+  	<?php if((is_home() || is_single() || is_archive() || is_category() || is_tag()) && (!is_tax( 'industry' ) && !is_singular( $resources_post_types ) && !is_post_type_archive( $resources_post_types )) ): ?>
     	<div class="textheader">
         	<div class="container">
 	        	<div class="row"><!--<h1><a href="<?php echo get_permalink(4); ?>">Blog</a></h1>-->
@@ -103,8 +110,8 @@
       <div class="content row">
         <?php if (roots_display_sidebar()) :
 				$show_blog_sidebar = false;
-        		$resources_post_types = array('casestudy','whitepaper','video','webinars','podcasts','tools','kits','reports','slicks');
-			   	if(is_home() || is_single() || is_archive() || is_category() || is_tag() ):
+        		
+			   	if((is_home() || is_single() || is_archive() || is_category() || is_tag()) && (!is_tax( 'industry' ) && !is_singular( $resources_post_types ) && !is_post_type_archive( $resources_post_types )) ):
   					$show_blog_sidebar = true;
   				endif;
   				if($show_blog_sidebar == false):
