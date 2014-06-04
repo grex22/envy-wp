@@ -2,7 +2,27 @@
 /**
  * Custom functions
  */
- 
+
+function add_cta_stuff_to_posts($content) {
+	global $post;
+	$cta = '';
+	
+	$cta_content = get_field('call-to-action_content',$post->ID);
+	$cta_icon = get_field('call-to-action_icon',$post->ID);
+	if($cta_content):
+		$cta .= "<div class='postcta'>".wpautop($cta_content)."</div>";
+		if($cta_icon):
+			$cta .= "<style>div.postcta:before{content:'".rtrim(str_replace("&#x","\\", $cta_icon->unicode),";")."';}</style>";
+		endif;
+		$content = $content . $cta;
+		return $content;
+	else:
+		return $content;
+	endif;
+}
+add_filter('the_content', 'add_cta_stuff_to_posts',1);
+
+
 	
 // Resources Get_Posts Function
 function get_resource( $post_type, $taxonomy_term = false, $posts_per_page = 10 ) {

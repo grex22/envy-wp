@@ -585,6 +585,10 @@ a{
   
   div.padding_right{
     padding-right:130px;
+    
+    @media (max-width: $md-width){
+      padding-right:5px;
+    }
   }
   
   h2{
@@ -600,12 +604,12 @@ a{
     line-height: 28px;
   }
   
-  .col-md-6{
+  .col-sm-6{
     @media (max-width:$sm-width){
       text-align:center;
       padding-right:15px!important;
       
-      & + .col-md-6{
+      & + .col-sm-6{
         display:none;
       }
     }
@@ -655,7 +659,6 @@ a{
   max-width: 1170px;
   
   @media (max-width: $sm-width){
-    width:100%;
     width: 100%;
     margin-top: 380px;
   }
@@ -672,7 +675,7 @@ a{
     width: 100%;
     text-align: center;
   }
-
+  
   
   li{
     width:141px;
@@ -693,8 +696,8 @@ a{
     vertical-align:top;
     border:none;
     
-    @media (max-width: $sm-width){
-      width:90px;
+    @media (max-width: $md-width){
+      width:75px;
     }
     
     &.active,&:hover{
@@ -726,7 +729,7 @@ a{
       
       @media (max-width: $sm-width){
         width: auto;
-        padding:14px;
+        padding:0;
       }
       
       i.fa-play-circle{
@@ -1290,8 +1293,16 @@ a{
     height: auto;
   }
   
+  .cta-btn{
+    margin:2px 12px 2px 0!important;
+  }
+  
   & + .supporting_content{
     box-shadow: inset 0px 50px 130px -70px #f5f5f5;
+  }
+  @media (max-width:$sm-width){
+    .more_right_padding{padding-right:15px!important}
+    .more_left_padding{padding-left:15px!important}
   }
 }
 
@@ -1353,6 +1364,8 @@ img.polaroid{
     color:white;
   }
 }
+
+
 
 /* ==========================================================================
    Blog
@@ -1583,27 +1596,24 @@ img.recent_featured{
   }
 }
 
-p.postcta{
+div.postcta{
   background: #f8f8f8;
   border-left: 4px solid #36abff;
   padding: 20px 20px 20px 90px;
   font-size: 16px;
   position: relative;
+  margin-bottom:20px;
   
   &:before{
     font-family:"FontAwesome";
-    content:"\f0eb";
+    content:"";
     color:#ddd;
     font-size: 54px;
     top: 35px;
-    left: 32px;
+    left: 22px;
     position: absolute;
   }
-  
-  a{
-    display: inline-block;
-    margin-top: 8px;
-  }
+  p{margin-bottom:8px!important;}
 }
 
 /* ==========================================================================
@@ -1718,7 +1728,8 @@ h2.resource_type{
 /* Eloqua Form */
 
 #leadform{
-  width:500px;
+  width:100%;
+  max-width:500px;
   
   input[type=text],select{padding:4px;}
   input[type=submit]{
@@ -1946,6 +1957,7 @@ ul.footer_nav{
 .padded{padding:20px;}
 .inline{display:inline}
 .block{display:block}
+.relative{position:relative}
 
 /* ==========================================================================
    WordPress Generated Classes

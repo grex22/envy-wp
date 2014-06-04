@@ -107,8 +107,8 @@
           <div class="pull-left">
           <?php echo get_field('announcement_message','option'); ?>
           </div>
-          <a href="#" id="announcement_close" class="cta-btn small pull-right"><i class="fa fa-times"></i></a>
-          <a href="<?php echo get_field('announcement_button_link','option'); ?>" class="cta-btn small primary pull-right"><i class="fa fa-play-circle"></i> <?php echo get_field('announcement_button_text','option'); ?></a>
+          <a href="#" id="announcement_close" class="cta-btn pull-right"><i class="fa fa-times"></i></a>
+          <a href="<?php echo get_field('announcement_button_link','option'); ?>" class="cta-btn primary pull-right"><i class="fa fa-play-circle"></i> <?php echo get_field('announcement_button_text','option'); ?></a>
           <div class="clearfix"></div>
         </div>
       </div>

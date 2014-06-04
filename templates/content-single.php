@@ -16,8 +16,9 @@
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
-           
       <?php
+
+           
 	  	if($post->post_type == 'post'):
 			$hide = get_field('hide_author_information');
 			if($hide){
