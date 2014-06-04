@@ -6,6 +6,9 @@
     <div class="entry-content">
       <p><?php the_field('_simple_fields_fieldGroupID_4_fieldID_2_numInSet_0'); ?></p>
       <?php the_content(); ?>
+
+      <br />
+      <br />
       <a href="<?php the_field('_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0'); ?>" target="_blank" class="cta-btn medium primary"><i class="fa fa-file-pdf-o"></i> View PDF</a>
     </div>
     <footer>
