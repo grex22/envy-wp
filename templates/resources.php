@@ -218,10 +218,8 @@ endif;
   {
     ?>
     <div>
-      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank"><?php echo $slick->post_title; ?></a>
-      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank" class="medium secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
-      <a href="<?php echo post_permalink( $report->ID ); ?>"><?php echo $report->post_title; ?></a>
-      <a href="<?php echo post_permalink( $report->ID ); ?>" class="medium secondary pull-right"><i class="fa fa-files-o"></i> View</a>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $report->ID ); ?>" target="_blank"><?php echo $report->post_title; ?></a>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $report->ID ); ?>" target="_blank" class="medium secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $report->ID); ?></p>
     </div>
     <?php
