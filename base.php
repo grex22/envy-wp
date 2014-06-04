@@ -20,7 +20,7 @@ $resources_post_types = array('casestudy','whitepaper','video','webinars','podca
   ?>
   <div id="main_wrap">
   
-  	<?php if((is_home() || is_single() || is_archive() || is_category() || is_tag()) && (!is_tax( 'industry' ) && !is_singular( $resources_post_types ) && !is_post_type_archive( $resources_post_types )) ): ?>
+  	<?php if((is_home() || is_single() || is_archive() || is_category() || is_tag() || is_search()) && (!is_tax( 'industry' ) && !is_singular( $resources_post_types ) && !is_post_type_archive( $resources_post_types )) ): ?>
     	<div class="textheader">
         	<div class="container">
 	        	<div class="row"><!--<h1><a href="<?php echo get_permalink(4); ?>">Blog</a></h1>-->
@@ -111,7 +111,7 @@ $resources_post_types = array('casestudy','whitepaper','video','webinars','podca
         <?php if (roots_display_sidebar()) :
 				$show_blog_sidebar = false;
         		
-			   	if((is_home() || is_single() || is_archive() || is_category() || is_tag()) && (!is_tax( 'industry' ) && !is_singular( $resources_post_types ) && !is_post_type_archive( $resources_post_types )) ):
+			   	if((is_home() || is_single() || is_archive() || is_category() || is_tag() || is_search()) && (!is_tax( 'industry' ) && !is_singular( $resources_post_types ) && !is_post_type_archive( $resources_post_types )) ):
   					$show_blog_sidebar = true;
   				endif;
   				if($show_blog_sidebar == false):
