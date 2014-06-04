@@ -103,30 +103,32 @@
       <div class="content row">
         <?php if (roots_display_sidebar()) :
 				$show_blog_sidebar = false;
-        $resources_post_types = array('casestudy','whitepaper','video','webinars','podcasts','tools','kits','reports','slicks');
-			   	if($show_blog_sidebar = is_home() || is_single() || is_archive() || is_category() || is_tag() || is_page('resources') || is_tax('industry') ){
+        		$resources_post_types = array('casestudy','whitepaper','video','webinars','podcasts','tools','kits','reports','slicks');
+			   	if(is_home() || is_single() || is_archive() || is_category() || is_tag() ):
   					$show_blog_sidebar = true;
-  				}	
-  				if($show_blog_sidebar == false):?>
-          	<aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
-              <?php get_template_part('templates/sidebar'); ?>
-            </aside>
-				 <?php endif; ?>
-			
-        <?php endif; ?>
+  				endif;
+  				if($show_blog_sidebar == false):
+					if( is_post_type_archive( $resources_post_types ) || is_singular( $resources_post_types ) || is_page('resources') || is_tax('industry') ): ?>
+                        <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
+                            <div id='blog_sidebar_wrapper'>
+                            <?php get_template_part('templates/resources-sidebar'); ?>
+                            </div>
+                        </aside>
+                    <?php else: ?>
+                        <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
+                            <?php get_template_part('templates/sidebar'); ?>
+                        </aside><?php
+					endif;
+				endif;
+			endif; ?>
         
         <div class="main <?php echo roots_main_class(); ?>" role="main">
           
           <?php include roots_template_path(); ?>
           
         </div><!-- /.main -->
-        <?php if( $show_blog_sidebar  && ( is_post_type_archive( $resources_post_types ) || is_singular( $resources_post_types ) || is_page('resources') || is_tax('industry') ) ): ?>
-        <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
-            <div id='blog_sidebar_wrapper'>
-            <?php get_template_part('templates/resources-sidebar'); ?>
-            </div>
-        </aside>
-        <?php elseif( $show_blog_sidebar ): ?>
+        
+        <?php if( $show_blog_sidebar ): ?>
         <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
             <div id='blog_sidebar_wrapper'>
             <?php get_template_part('templates/blog-sidebar'); ?>

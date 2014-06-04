@@ -50,8 +50,8 @@
           <?php endwhile; ?>
           
           <?php 
-		  //Old watch button
-		  $controls .='<li class="watch">Watch <i class="fa fa-play-circle-o visible-xs"></i> <i class="fa fa-play-circle"></i></li></ol>'; 
+		  //Watch button
+		  $controls .='<li class="watch"><i class="fa fa-play-circle-o visible-xs"></i> <i class="fa fa-play-circle"></i></li></ol>'; 
 		  //$controls .='<li class="watch no_icon"><a href="'.get_permalink(8).'">Products</a></li></ol>';
 		  ?>
           <?php $slides .='</div>'; ?>

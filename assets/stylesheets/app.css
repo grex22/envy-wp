@@ -2276,37 +2276,42 @@ ul.footer_nav li {
   display: inline;
 }
 
+/* line 1920, ../sass/app.scss */
+.block {
+  display: block;
+}
+
 /* ==========================================================================
    WordPress Generated Classes
    See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
    ========================================================================== */
-/* line 1926, ../sass/app.scss */
+/* line 1927, ../sass/app.scss */
 .aligncenter {
   display: block;
   margin: 0 auto;
 }
 
-/* line 1927, ../sass/app.scss */
+/* line 1928, ../sass/app.scss */
 .alignleft {
   float: left;
 }
 
-/* line 1928, ../sass/app.scss */
+/* line 1929, ../sass/app.scss */
 .alignright {
   float: right;
 }
 
-/* line 1929, ../sass/app.scss */
+/* line 1930, ../sass/app.scss */
 figure.alignnone {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 1932, ../sass/app.scss */
+/* line 1933, ../sass/app.scss */
 .main img.alignleft {
   margin: 0 30px 20px 0;
 }
-/* line 1933, ../sass/app.scss */
+/* line 1934, ../sass/app.scss */
 .main img.alignright {
   margin: 0 0px 20px 30px;
 }
@@ -2314,126 +2319,126 @@ figure.alignnone {
 /* ==========================================================================
    Responsive Text Alignment
    ========================================================================== */
-/* line 1941, ../sass/app.scss */
+/* line 1942, ../sass/app.scss */
 .text-left-not-xs, .text-left-not-sm, .text-left-not-md, .text-left-not-lg {
   text-align: left;
 }
 
-/* line 1944, ../sass/app.scss */
+/* line 1945, ../sass/app.scss */
 .text-center-not-xs, .text-center-not-sm, .text-center-not-md, .text-center-not-lg {
   text-align: center;
 }
 
-/* line 1947, ../sass/app.scss */
+/* line 1948, ../sass/app.scss */
 .text-right-not-xs, .text-right-not-sm, .text-right-not-md, .text-right-not-lg {
   text-align: right;
 }
 
-/* line 1950, ../sass/app.scss */
+/* line 1951, ../sass/app.scss */
 .text-justify-not-xs, .text-justify-not-sm, .text-justify-not-md, .text-justify-not-lg {
   text-align: justify;
 }
 
 @media (max-width: 766px) {
-  /* line 1956, ../sass/app.scss */
+  /* line 1957, ../sass/app.scss */
   .text-left-not-xs, .text-center-not-xs, .text-right-not-xs, .text-justify-not-xs {
     text-align: inherit;
   }
 
-  /* line 1959, ../sass/app.scss */
+  /* line 1960, ../sass/app.scss */
   .text-left-xs {
     text-align: left;
   }
 
-  /* line 1962, ../sass/app.scss */
+  /* line 1963, ../sass/app.scss */
   .text-center-xs {
     text-align: center;
   }
 
-  /* line 1965, ../sass/app.scss */
+  /* line 1966, ../sass/app.scss */
   .text-right-xs {
     text-align: right;
   }
 
-  /* line 1968, ../sass/app.scss */
+  /* line 1969, ../sass/app.scss */
   .text-justify-xs {
     text-align: justify;
   }
 }
 @media (min-width: 767px) and (max-width: 991px) {
-  /* line 1973, ../sass/app.scss */
+  /* line 1974, ../sass/app.scss */
   .text-left-not-sm, .text-center-not-sm, .text-right-not-sm, .text-justify-not-sm {
     text-align: inherit;
   }
 
-  /* line 1976, ../sass/app.scss */
+  /* line 1977, ../sass/app.scss */
   .text-left-sm {
     text-align: left;
   }
 
-  /* line 1979, ../sass/app.scss */
+  /* line 1980, ../sass/app.scss */
   .text-center-sm {
     text-align: center;
   }
 
-  /* line 1982, ../sass/app.scss */
+  /* line 1983, ../sass/app.scss */
   .text-right-sm {
     text-align: right;
   }
 
-  /* line 1985, ../sass/app.scss */
+  /* line 1986, ../sass/app.scss */
   .text-justify-sm {
     text-align: justify;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 1990, ../sass/app.scss */
+  /* line 1991, ../sass/app.scss */
   .text-left-not-md, .text-center-not-md, .text-right-not-md, .text-justify-not-md {
     text-align: inherit;
   }
 
-  /* line 1993, ../sass/app.scss */
+  /* line 1994, ../sass/app.scss */
   .text-left-md {
     text-align: left;
   }
 
-  /* line 1996, ../sass/app.scss */
+  /* line 1997, ../sass/app.scss */
   .text-center-md {
     text-align: center;
   }
 
-  /* line 1999, ../sass/app.scss */
+  /* line 2000, ../sass/app.scss */
   .text-right-md {
     text-align: right;
   }
 
-  /* line 2002, ../sass/app.scss */
+  /* line 2003, ../sass/app.scss */
   .text-justify-md {
     text-align: justify;
   }
 }
 @media (min-width: 1200px) {
-  /* line 2007, ../sass/app.scss */
+  /* line 2008, ../sass/app.scss */
   .text-left-not-lg, .text-center-not-lg, .text-right-not-lg, .text-justify-not-lg {
     text-align: inherit;
   }
 
-  /* line 2010, ../sass/app.scss */
+  /* line 2011, ../sass/app.scss */
   .text-left-lg {
     text-align: left;
   }
 
-  /* line 2013, ../sass/app.scss */
+  /* line 2014, ../sass/app.scss */
   .text-center-lg {
     text-align: center;
   }
 
-  /* line 2016, ../sass/app.scss */
+  /* line 2017, ../sass/app.scss */
   .text-right-lg {
     text-align: right;
   }
 
-  /* line 2019, ../sass/app.scss */
+  /* line 2020, ../sass/app.scss */
   .text-justify-lg {
     text-align: justify;
   }
@@ -2441,7 +2446,7 @@ figure.alignnone {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-/* line 2027, ../sass/app.scss */
+/* line 2028, ../sass/app.scss */
 #more-overlay-link {
   display: none;
 }
@@ -2453,18 +2458,18 @@ figure.alignnone {
       text-align:center;
     }
   }*/
-  /* line 2037, ../sass/app.scss */
+  /* line 2038, ../sass/app.scss */
   #more-overlay-link {
     display: block;
   }
 
-  /* line 2038, ../sass/app.scss */
+  /* line 2039, ../sass/app.scss */
   .more_link_li {
     display: none !important;
   }
 }
 @media (max-width: 1200px) {
-  /* line 2046, ../sass/app.scss */
+  /* line 2047, ../sass/app.scss */
   .diagram_halves.arrow {
     display: none !important;
   }

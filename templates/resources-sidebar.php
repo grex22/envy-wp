@@ -1,7 +1,7 @@
 <?php if ( ! is_page('resources') ) : ?>
-	<a href="<?php echo home_url('/resources/'); ?>" class="cta-btn medium primary"><i class="fa fa-caret-square-o-left"></i> Overview</a>
+	<a href="<?php echo home_url('/resources/'); ?>" class="cta-btn medium block primary"><i class="fa fa-caret-square-o-left"></i> Overview</a>
 <?php endif; ?>
-<h2>View by Industry:</h2>
+<h4>View by Industry:</h4>
 <ul class="menu">
 	<li class=""><a href="<?php echo home_url('/industry-resource/retail/'); ?>">Retail</a></li>
 	<li class=""><a href="<?php echo home_url('/industry-resource/restaurant/'); ?>">Restaurant</a></li>
