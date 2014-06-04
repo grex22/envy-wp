@@ -1871,7 +1871,7 @@ img.recent_featured {
 /* line 1576, ../sass/app.scss */
 p.postcta {
   background: #f8f8f8;
-  border: 1px solid #ddd;
+  border-left: 4px solid #36abff;
   padding: 20px 20px 20px 90px;
   font-size: 16px;
   position: relative;
