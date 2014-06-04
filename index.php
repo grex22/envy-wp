@@ -1,5 +1,9 @@
 <?php //get_template_part('templates/page', 'header'); ?>
 
+<?php if(is_search()): ?>
+	<h2>Search Results: <?php the_search_query(); ?></h2>
+<?php endif; ?>
+
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'roots'); ?>
@@ -41,11 +45,13 @@
 	endif;*/
 
 ?>
-<h6><strong>Latest Article</strong></h6>
+
 <?php $is_first_post = true; ?>
 
 <?php while (have_posts()) : the_post();
-		if($is_first_post && !is_paged()):
+		if($is_first_post && !is_paged() && !is_search()): ?>
+        	<h6><strong>Latest Article</strong></h6>
+            <?php
   			$is_first_post = false;?>
 			
 				<article <?php post_class(); ?>>
