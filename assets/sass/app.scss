@@ -2065,7 +2065,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-#more-overlay-link{
+#more-overlay-link,#client-login-mobile{
   display:none;
 }
 @media (max-width: $sm-width) {
@@ -2076,6 +2076,7 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
     }
   }*/
   #more-overlay-link{display:block;}
+  #client-login-mobile{display:block;}
   .more_link_li{display:none!important;}
 
 }

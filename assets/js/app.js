@@ -5,6 +5,7 @@ $(document).ready(function(){
   
   $("#menu-primary-navigation").append('<li class="more_link_li"><a href="#" id="more-link">More&hellip;</a></li>');
   $("#menu-primary-navigation").append('<li class="more_link_li_mobile"><a href="#" id="more-overlay-link">More&hellip;</a></li>');
+  $("#menu-primary-navigation").append('<li class="client_login_link"><a href="https://video.envysion.com/auth/login.jsp" id="client-login-mobile">Client Login</a></li>');
   
   var current_body_padding_top = $('body').css('padding-top');
   var more_nav_animation_speed = 200;

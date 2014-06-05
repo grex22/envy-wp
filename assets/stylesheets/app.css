@@ -2510,7 +2510,7 @@ figure.alignnone {
    Media Queries
    ========================================================================== */
 /* line 2068, ../sass/app.scss */
-#more-overlay-link {
+#more-overlay-link, #client-login-mobile {
   display: none;
 }
 
@@ -2527,12 +2527,17 @@ figure.alignnone {
   }
 
   /* line 2079, ../sass/app.scss */
+  #client-login-mobile {
+    display: block;
+  }
+
+  /* line 2080, ../sass/app.scss */
   .more_link_li {
     display: none !important;
   }
 }
 @media (max-width: 1200px) {
-  /* line 2087, ../sass/app.scss */
+  /* line 2088, ../sass/app.scss */
   .diagram_halves.arrow {
     display: none !important;
   }
