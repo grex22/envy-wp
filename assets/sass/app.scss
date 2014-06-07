@@ -94,6 +94,9 @@ body {
 }
 a{
   color:$blue;
+  outline: none;
+  &::-moz-focus-inner{border: 0;}
+  &:focus{outline:none;text-decoration:none;}
   &:hover{
     text-decoration:none;
   }
@@ -550,6 +553,7 @@ a{
     -webkit-filter: blur(10px);
     filter: blur(10px);
     
+    
     @media (max-width:$sm-width){
       width: 100%;
     }
@@ -597,6 +601,10 @@ a{
     font-size: 55px;
     margin-bottom: 26px;
     margin-top: 20px;
+    
+    @media (max-width: $sm-width){
+      font-size:44px;
+    }
   }
   p{
     color: white;
@@ -658,9 +666,13 @@ a{
   position: absolute;
   max-width: 1170px;
   
+  @media (max-width: $md-width) and (min-width: $sm-width - 1){
+      margin-top:370px;
+  }
+  
   @media (max-width: $sm-width){
     width: 100%;
-    margin-top: 380px;
+    margin-top: 430px;
   }
 }      
 .carousel-indicators.home_hero_controls{
@@ -696,8 +708,11 @@ a{
     vertical-align:top;
     border:none;
     
-    @media (max-width: $md-width){
-      width:75px;
+    @media (max-width: $md-width) and (min-width: $sm-width - 1){
+      width:67px;
+    }
+    @media (max-width: $sm-width){
+      width:23.5%;
     }
     
     &.active,&:hover{
@@ -726,10 +741,11 @@ a{
         display: inline-block;
          padding: 14px 13px 0 24px;
       }
-      
+
       @media (max-width: $sm-width){
-        width: auto;
+        width: 24%;
         padding:0;
+        a{padding:14px 5px 0 5px;font-size:18px;}
       }
       
       i.fa-play-circle{
@@ -1240,7 +1256,12 @@ a{
     h1,h2,h3,h4,h5,h6{
       color:$blue;
     }
-    h1{font-size:45px;}
+    h1{
+      font-size:45px;
+      @media (max-width: $sm-width){
+        font-size:26px;
+      }
+    }
     p{
       margin:19px 10% 25px;
       color: #777;
@@ -1451,7 +1472,7 @@ img.polaroid{
   
   .widget{
     background:$gray9;
-    padding:20px;
+    padding:15px;
   }
   
   h3{font-size:15px;font-weight:700;margin-bottom:10px;}
@@ -1712,8 +1733,12 @@ h2.resource_type{
   .cta-btn.pull-right{
     margin-left:20px;
   }
-}
+  
 
+}
+.resource_title{
+  font-size:17px;
+}
 
 
 /* ==========================================================================
@@ -1728,8 +1753,6 @@ h2.resource_type{
 /* Eloqua Form */
 
 #leadform{
-  width:100%;
-  max-width:500px;
   
   input[type=text],select{padding:4px;}
   input[type=submit]{
@@ -1800,6 +1823,10 @@ h2.resource_type{
         border-left:5px solid $blue;
       }
     }
+  }
+  
+  .cta-btn{
+    min-width:0;
   }
   
 }
@@ -1948,6 +1975,11 @@ ul.footer_nav{
 }
 .yarpp-thumbnails-horizontal{
   margin-bottom:30px!important;
+}
+.wp-pagenavi a, .wp-pagenavi span{border-radius:2px;padding: 4px 8px!important;border-color:#e4e4e4!important;}
+.wp-pagenavi a:hover, .wp-pagenavi span.current{
+  border-color:$blue!important;
+  
 }
   
 /* ==========================================================================

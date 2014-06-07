@@ -37,7 +37,7 @@ endif;
     ?>
     <div class="resource_row">
       <a href="<?php the_field( 'white_paper_upload', $whitepaper->ID ); ?>" target="_blank" class="cta-btn small secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
-      <a href="<?php the_field( 'white_paper_upload', $whitepaper->ID ); ?>" target="_blank"><?php echo $whitepaper->post_title; ?></a>
+      <a href="<?php the_field( 'white_paper_upload', $whitepaper->ID ); ?>" target="_blank" class="resource_title"><?php echo $whitepaper->post_title; ?></a>
       
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $whitepaper->ID ); ?></p>
     </div>
@@ -64,7 +64,7 @@ endif;
     ?>
     <div class="resource_row">
       <a href="<?php the_field( 'case_study_pdf', $casestudy->ID ); ?>" target="_blank" class="cta-btn small secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
-      <a href="<?php the_field( 'case_study_pdf', $casestudy->ID ); ?>" target="_blank"><?php echo $casestudy->post_title; ?></a>
+      <a href="<?php the_field( 'case_study_pdf', $casestudy->ID ); ?>" target="_blank" class="resource_title"><?php echo $casestudy->post_title; ?></a>
       
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $casestudy->ID); ?></p>
     </div>
@@ -91,7 +91,7 @@ endif;
     ?>
     <div class="resource_row">
       <a href="<?php echo post_permalink( $video->ID ); ?>" class="cta-btn small secondary pull-right"><i class="fa fa-video-camera"></i> View</a>
-      <a href="<?php echo post_permalink( $video->ID ); ?>"><?php echo $video->post_title; ?></a>
+      <a href="<?php echo post_permalink( $video->ID ); ?>" class="resource_title"><?php echo $video->post_title; ?></a>
       
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $video->ID); ?></p>
     </div>
@@ -118,7 +118,7 @@ endif;
     ?>
     <div class="resource_row">
       <a href="<?php echo post_permalink( $webinar->ID ); ?>" class="cta-btn small secondary pull-right"><i class="fa fa-video-camera"></i> View</a>
-      <a href="<?php echo post_permalink( $webinar->ID ); ?>"><?php echo $webinar->post_title; ?></a>
+      <a href="<?php echo post_permalink( $webinar->ID ); ?>" class="resource_title"><?php echo $webinar->post_title; ?></a>
       
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $webinar->ID); ?></p>
     </div>
@@ -172,7 +172,7 @@ endif;
     ?>
     <div class="resource_row">
       <a href="<?php echo post_permalink( $tool->ID ); ?>" class="cta-btn small secondary pull-right"><i class="fa fa-files-o"></i> View</a>
-      <a href="<?php echo post_permalink( $tool->ID ); ?>"><?php echo $tool->post_title; ?></a>
+      <a href="<?php echo post_permalink( $tool->ID ); ?>" class="resource_title"><?php echo $tool->post_title; ?></a>
       
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $tool->ID); ?></p>
     </div>
@@ -199,7 +199,7 @@ endif;
     ?>
     <div class="resource_row">
     	<a href="<?php echo post_permalink( $kit->ID ); ?>" class="cta-btn small secondary pull-right"><i class="fa fa-files-o"></i> View</a>
-      	<a href="<?php echo post_permalink( $kit->ID ); ?>"><?php echo $kit->post_title; ?></a>
+      	<a href="<?php echo post_permalink( $kit->ID ); ?>" class="resource_title"><?php echo $kit->post_title; ?></a>
       
       	<p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $kit->ID); ?></p>
     </div>
@@ -226,7 +226,7 @@ endif;
     ?>
     <div class="resource_row">
     	<a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $report->ID ); ?>" target="_blank" class="cta-btn small secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
-      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $report->ID ); ?>" target="_blank"><?php echo $report->post_title; ?></a>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $report->ID ); ?>" target="_blank" class="resource_title"><?php echo $report->post_title; ?></a>
       
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $report->ID); ?></p>
     </div>
@@ -253,7 +253,7 @@ endif;
     ?>
     <div class="resource_row">
     	<a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank" class="cta-btn small secondary pull-right"><i class="fa fa-file-pdf-o"></i> PDF</a>
-      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank"><?php echo $slick->post_title; ?></a>
+      <a href="<?php the_field( '_simple_fields_fieldGroupID_3_fieldID_3_numInSet_0', $slick->ID ); ?>" target="_blank" class="resource_title"><?php echo $slick->post_title; ?></a>
       
       <p><?php the_field( '_simple_fields_fieldGroupID_29_fieldID_1_numInSet_0', $slick->ID); ?></p>
     </div>

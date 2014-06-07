@@ -24,7 +24,7 @@ $resources_post_types = array('casestudy','whitepaper','video','webinars','podca
     	<div class="textheader">
         	<div class="container">
 	        	<div class="row"><!--<h1><a href="<?php echo get_permalink(4); ?>">Blog</a></h1>-->
-                <h2>Insights for improving profitability through video-based business intelligence.</h2>
+                <h2><?php if(!is_home()): ?><a href="<?php echo get_permalink(4); ?>">Blog</a> &larr; <?php endif; ?>Insights for improving profitability through video-based business intelligence.</h2>
                 </div>
             </div>
         </div>

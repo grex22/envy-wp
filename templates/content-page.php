@@ -20,6 +20,8 @@
               $introblurb = get_sub_field('tab_block_intro');
               
               if( have_rows('tabs') ):
+			  	
+				/*
  
                 // loop through the rows of data
                   $tabsarray = array();
@@ -70,6 +72,8 @@
                     <?php
                     
                   endif;
+				  
+				  */
                
 				
 			  else :
