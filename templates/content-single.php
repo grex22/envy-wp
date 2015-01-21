@@ -38,6 +38,7 @@
 					$facebook_url = get_field('facebook_url');
 					$twitter_url = get_field('twitter_url');
 					$google_url = get_field('google_url');
+					$email = get_field('email');
 				}else{
 					//Not a guest! Let's use the author's standard metadata
 					$auth_name = get_the_author();
@@ -63,6 +64,7 @@
 						<?php if($linkedin_url){?><a href="<?php echo $linkedin_url; ?>" target="_self" title="<?php echo $auth_name; ?> On LinkedIn"><i class="fa fa-linkedin-square"></i></a><?php } ?>
 						<?php if($google_url){?><a href="<?php echo $google_url; ?>" target="_self" title="<?php echo $auth_name; ?> On Google+"><i class="fa fa-google-plus-square"></i></a><?php } ?>
 						<?php if($facebook_url){?><a href="<?php echo $facebook_url; ?>" target="_self" title="<?php echo $auth_name; ?> On Facebook"><i class="fa fa-facebook-square"></i></a><?php } ?>
+                        <?php if($email){?><a href="mailto:<?php echo $email; ?>" target="_self" title="Email <?php echo $auth_name; ?>"><i class="fa fa-envelope-square"></i></a><?php } ?>
 						<?php if(!$is_guest){?>
 							<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" target="_self" title="More Posts By <?php echo $auth_name; ?>"><i class="fa fa-file-text"></i></a>
 						<?php } ?>

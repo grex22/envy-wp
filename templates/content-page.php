@@ -3,6 +3,8 @@
   
   <?php
   
+  	
+  
     // check if the flexible content field has rows of data
     if( have_rows('page_content_blocks') ):
      
@@ -21,7 +23,7 @@
               
               if( have_rows('tabs') ):
 			  	
-				/*
+				if(is_page(7339)): // only show this on the envysion user summit page for now...
  
                 // loop through the rows of data
                   $tabsarray = array();
@@ -73,7 +75,7 @@
                     
                   endif;
 				  
-				  */
+				  endif;
                
 				
 			  else :
@@ -91,8 +93,8 @@
 					$hs_img = get_sub_field('photo');
 					echo "<div class='row headshot_row'>";
 					if( $hs_img ):
-						echo "<div class='col-md-2 headshot_row_img'><span>".wp_get_attachment_image($hs_img['id'],'headshot_thumbnail')."</span></div>";
-						echo "<div class='col-md-10'>";
+						echo "<div class='col-md-3 headshot_row_img'><span>".wp_get_attachment_image($hs_img['id'],'headshot_thumbnail')."</span></div>";
+						echo "<div class='col-md-9'>";
 					else:
 						echo "<div class='col-md-12'>";
 					endif;

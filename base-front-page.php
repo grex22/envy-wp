@@ -13,13 +13,53 @@
     }
   ?>
   <div id="main_wrap">
-  
-    
+  	  <?php $showsingleslide = false; ?>
+      <?php if($showsingleslide): ?>
+      
+    	<div class="page_hero bluebg" style="background-image:url(http://envysion.com/media/HeroImage_Home.jpg);background-size:cover;background-position:center center;min-height:340px;" >
+        <div class="wrap container extra_padding">
+          <div class="row">
+            <div class="col-xs-6 page_hero_content">
+              <h1>Envysion User Summit</h1>
+              <p style="margin:19px 0 27px 0px">Tap into valuable insight.<br>Maximize your investment.<br>Change your customer experience.</p>
+              
+                <a href="<?php echo get_permalink(7339); ?>" class="cta-btn primary">Learn More</a>
+                <a href="https://www.regonline.com/builder/site/?eventid=1538763" target="_blank" class="cta-btn">Register Now</a>
+
+            </div>
+          </div>
+        </div>
+      </div>      
+      
+      <?php else: ?>
+      <!-- Temporarily disabled for Summit graphic -->
       <?php if( get_field('slide') ): ?>
+      
+      	  <?php if(isset($_GET['dem']) && $_GET['dem'] == "videodemo"): ?>
+		  <div class="feature" style="height: 400px;width: 100%;overflow: hidden;position: relative;">
+            <video id="videodemogb" style="width: 100%;position: relative;top: 50%;-webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);transform: translateY(-50%);z-index: 1;min-width: 100%;min-height: 100%;width: auto;height: auto;" autoplay="" loop="loop" poster="<?php echo bloginfo('stylesheet_directory'); ?>/assets/img/video.jpg" muted>
+              <source src="<?php echo bloginfo('stylesheet_directory'); ?>/assets/img/envysion.mp4" type="video/mp4">
+              <img src="<?php echo bloginfo('stylesheet_directory'); ?>/assets/img/video.jpg" width="100%" height="100%" alt="">
+            </video>
+            <div class="jumbotron" style="height: 100%;background: transparent url(../../assets/img/raster-20.png) top left repeat;width: 100%;z-index: 2;position: absolute;text-align: center;color: white;top: 0;">
+              
+              <div class="container" style="text-shadow: 0 0 6px black;">
+                <h1 style="color:white">Actionable Insights</h1>
+                <p style="color:white;color: white;font-size: 25px;margin: 28px 70px;">A unique approach to video intelligence that creates "game film" from your video, audio and data combined with innovative analytics, auditing and business intelligence to maximize insights.</p>
+                <a href="//fast.wistia.net/embed/iframe/z1iuy28egs?popover=true" class="wistia-popover[height=450,playerColor=7b796a,width=800] btn btn-primary" style="font-size: 25px;padding: 10px 30px;">Request a Demo</a>
+                <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script>
+              </div>
+            </div>
+          </div>
+
+          
+		  <?php else: ?>
       
           <div id="home_hero_slider" class="carousel fade" data-ride="carousel">
       
-          <?php $controls = '<ol class="carousel-indicators home_hero_controls">'; ?>
+          <?php $controls = '<ol class="carousel-indicators '; ?>
+          <?php if($_GET['newhero'] == 'nh') $controls .= "gbb_hero_controls"; else $controls .= "home_hero_controls"; ?>
+		  <?php $controls .= '">'; ?>
           <?php $slides .= '<div class="carousel-inner">'; ?>
           <?php $i=0; ?>
          
@@ -51,22 +91,29 @@
           
           <?php 
 		  //Watch button
-		  $controls .='<li class="watch"><a href="#leadform">Demo<i class="fa fa-play-circle"></i></a></li></ol>'; 
+		  $controls .='<li class="watch"><a href="//fast.wistia.net/embed/iframe/z1iuy28egs?popover=true" class="wistia-popover[height=450,playerColor=7b796a,width=800]">Play<i class="fa fa-play-circle"></i></a></li></ol>'; 
 		  //$controls .='<li class="watch no_icon"><a href="'.get_permalink(8).'">Products</a></li></ol>';
 		  ?>
           <?php $slides .='</div>'; ?>
 
-        <?php endif; ?>
+        
         <div class="wrap container"><div class="row relative"><div class="col-sm-12 indicators_wrap">
         <?php echo $controls; ?>
         </div></div></div>
         <?php echo $slides; ?>
+        <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script>
         
         </div>
+        <?php endif; ?>
+        <?php endif; ?>
+        
+    <?php endif; ?>
         
     </div>
     </div>
   </div>
+  <?php $hidehomepagecontent = true; ?>
+  <?php if($hidehomepagecontent != true): ?>
   <div id="home_diagram">
     <div class="wrap container">
       <?php
@@ -138,6 +185,39 @@
       <a href="#leadform" class="cta-btn primary">Request a Demo</a>
     </div>
   </div>
+  <?php
+	$args = array( 'numberposts' => '1', 'post_status' => 'publish' );
+	$recent_posts = wp_get_recent_posts( $args );
+	if($recent_posts):
+		
+		$rid = $recent_posts[0]['ID'];
+		$rtitle = $recent_posts[0]['post_title'];
+		$fulltext = $recent_posts[0]['post_content'];
+		$fulltext = preg_replace('/\[stextbox[^\]]*\](.*)\[\/stextbox\]/', '$1', $fulltext);
+		$rexcerpt = wp_trim_words($fulltext,35,'...');
+		$post_thumb = wp_get_attachment_image(get_post_thumbnail_id($rid),'call_out_block_image',false,array('class'=>'polaroid'));
+		
+	?>
+		<div class="supporting_content">
+        	<div class="wrap container">
+            	<div class="row">
+                  <div class="col-md-5 hidden-sm hidden-xs">
+                    <?php echo $post_thumb; ?>
+                  </div>
+                <div class="col-md-7 more_right_padding">
+                  <h6>FROM THE BLOG:</h6>
+                  <h2><a href="<?php echo get_permalink($rid); ?>" title=""><?php echo $rtitle; ?></a></h2>
+                  <p><?php echo $rexcerpt; ?></p>
+                    <a href="<?php echo get_permalink($rid); ?>" title="" class="cta-btn medium primary"><i class="fa fa-play-circle"></i> Read More&hellip;</a>
+                    <a href="<?php echo home_url()."/blog"; ?>" class="cta-btn medium secondary"><i class="fa fa-play-circle"></i> The Envysion Blog</a>
+                </div>
+              </div>
+            </div>
+          </div>
+	<?php
+	endif;
+	
+  ?>  
   <?php while(has_sub_field("home_page_content")): ?>
     <?php if(get_row_layout() == "callout_blocks"): // layout: Content ?>
       <div class="supporting_content">
@@ -183,7 +263,7 @@
       <?php endif; ?>
     </div><!-- /.content -->
   </div><!-- /.wrap -->
-  
+  <?php endif; // END hidehomepagecontent ?>
   
   <?php $footer_headline = get_field('orange_footer_headline'); ?>
   <?php if($footer_headline): ?>

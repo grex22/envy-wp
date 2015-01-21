@@ -37,9 +37,11 @@ $resources_post_types = array('casestudy','whitepaper','video','webinars','podca
           $button_p_text = get_field('hero_button');
 		  $button_p_link_type = get_field('hero_button_link_type_primary');
           $button_p_link = get_field('hero_button_link');
+		  $button_p_url = get_field('hero_button_primary_url');
           $button_s_text = get_field('hero_button_secondary');
 		  $button_s_link_type = get_field('hero_button_link_type_secondary');
           $button_s_link = get_field('hero_button_secondary_link');
+		  $button_s_url = get_field('hero_button_secondary_url');
           $bgimg = get_field('hero_image_background');
           $highlightimg = get_field('hero_image');
           $bgcolor = get_field('hero_background_color');
@@ -91,11 +93,13 @@ $resources_post_types = array('casestudy','whitepaper','video','webinars','podca
                 <?php if($blurb): ?><p><?php echo $blurb; ?></p><?php endif; ?>
                 <?php if($button_p_text): ?>
                   <?php if($button_p_link_type == 'rdmodal') $button_p_link = '#leadform'; ?>
-                  <a href="<?php echo $button_p_link; ?>" class="<?php if($button_p_link_type == 'rdmodal') echo "fancybox "; ?>cta-btn primary"><?php echo $button_p_text; ?></a>
+                  <?php if($button_p_link_type == 'url') $button_p_link = $button_p_url; ?>
+                  <a href="<?php echo $button_p_link; ?>" class="<?php if($button_p_link_type == 'rdmodal') echo " "; ?>cta-btn primary"><?php echo $button_p_text; ?></a>
                 <?php endif; ?>
                 <?php if($button_s_text): ?>
                   <?php if($button_s_link_type == 'rdmodal') $button_s_link = '#leadform'; ?>
-                  <a href="<?php echo $button_s_link; ?>" class="<?php if($button_s_link_type == 'rdmodal') echo "fancybox "; ?>cta-btn"><?php echo $button_s_text; ?></a>
+                  <?php if($button_s_link_type == 'url') $button_s_link = $button_s_url; ?>
+                  <a href="<?php echo $button_s_link; ?>" class="<?php if($button_s_link_type == 'rdmodal') echo " "; ?>cta-btn"><?php echo $button_s_text; ?></a>
                 <?php endif; ?>
               </div>
             </div>

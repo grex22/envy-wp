@@ -3,15 +3,14 @@
 <?php
 global $post;
 $currentpage = $post->ID;
-if(is_page('7009') || $post->post_parent == '7009' ){ ?>
-<h4><a href="<?php echo get_permalink(7009); ?>">Envysion Careers</a></h4>
+if(is_page('6944') || $post->post_parent == '6944' ){ ?>
 <ul id="menu-primary-navigation-1" class="menu">
 <?php
 
 
 $the_query = new WP_Query( array( 
 	'post_type' => 'page',
-	'post_parent' => 7009, 
+	'post_parent' => 6944, 
 ));
 
 if ( $the_query->have_posts() ) {

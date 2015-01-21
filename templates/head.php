@@ -12,7 +12,9 @@
 
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
-  <link href="<?php bloginfo('template_url'); ?>/assets/css/font-awesome.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link href="<?php bloginfo('template_url'); ?>/assets/css/font-awesome.css" type="text/css" rel="stylesheet">
   <!-- GAnalytics Tracking -->
   <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -24,42 +26,8 @@
 	ga('send', 'pageview');
 	
   </script>
-  <!-- Eloqua Tracking -->
-  <script type="text/javascript">
-    var _elqQ = _elqQ || [];
-    _elqQ.push(['elqSetSiteId', '1628470252']);
-    _elqQ.push(['elqTrackPageView']);
+  
+  <meta name="google-site-verification" content="TcpfZTFEDB2AJK0Vk3BQZW9UCWK_2QK7zQQR_JXuF0A" />
     
-    (function () {
-        function async_load() {
-            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
-            s.src = '//img.en25.com/i/elqCfg.min.js';
-            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-        }
-        if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
-        else if (window.attachEvent) window.attachEvent('onload', async_load); 
-    })();
-  </script>
-  <script type='text/javascript'><!--//
-	var timerId = null, timeout = 5;
-	//--></script>
-	<script type='text/javascript'><!--//
-	function WaitUntilCustomerGUIDIsRetrieved() {
-	if (!!(timerId)) {
-		if (timeout == 0) {
-	return;
-	}
-	if (typeof this.GetElqCustomerGUID === 'function') {
-			document.forms["webdemorequest"].elements["elqCustomerGUID"].value = GetElqCustomerGUID();
-	return;
-	}
-	timeout -= 1;
-	}
-	timerId = setTimeout("WaitUntilCustomerGUIDIsRetrieved()", 500);
-	return;
-	}
-	window.onload = WaitUntilCustomerGUIDIsRetrieved;
-	_elqQ.push(['elqGetCustomerGUID']);
-	//--></script>
 
 </head>

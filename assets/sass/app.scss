@@ -94,9 +94,6 @@ body {
 }
 a{
   color:$blue;
-  outline: none;
-  &::-moz-focus-inner{border: 0;}
-  &:focus{outline:none;text-decoration:none;}
   &:hover{
     text-decoration:none;
   }
@@ -517,6 +514,12 @@ a{
 /* ==========================================================================
    Hero Slider
    ========================================================================== */
+
+.fancybox-inner{
+  border: 5px solid white !important;
+}
+
+   
 .home_hero_slide{
   padding:30px 0 0 0;
   background-repeat: no-repeat;
@@ -552,7 +555,6 @@ a{
     filter: url("data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20version%3D%221.1%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3C%2Fsvg%3E#blur");
     -webkit-filter: blur(10px);
     filter: blur(10px);
-    
     
     @media (max-width:$sm-width){
       width: 100%;
@@ -601,10 +603,6 @@ a{
     font-size: 55px;
     margin-bottom: 26px;
     margin-top: 20px;
-    
-    @media (max-width: $sm-width){
-      font-size:44px;
-    }
   }
   p{
     color: white;
@@ -666,13 +664,9 @@ a{
   position: absolute;
   max-width: 1170px;
   
-  @media (max-width: $md-width) and (min-width: $sm-width - 1){
-      margin-top:370px;
-  }
-  
   @media (max-width: $sm-width){
     width: 100%;
-    margin-top: 430px;
+    margin-top: 380px;
   }
 }      
 .carousel-indicators.home_hero_controls{
@@ -708,11 +702,8 @@ a{
     vertical-align:top;
     border:none;
     
-    @media (max-width: $md-width) and (min-width: $sm-width - 1){
-      width:67px;
-    }
-    @media (max-width: $sm-width){
-      width:23.5%;
+    @media (max-width: $md-width){
+      width:75px;
     }
     
     &.active,&:hover{
@@ -741,11 +732,10 @@ a{
         display: inline-block;
          padding: 14px 13px 0 24px;
       }
-
+      
       @media (max-width: $sm-width){
-        width: 24%;
+        width: auto;
         padding:0;
-        a{padding:14px 5px 0 5px;font-size:18px;}
       }
       
       i.fa-play-circle{
@@ -784,6 +774,99 @@ a{
     }
     
 
+  }
+}
+
+.carousel-indicators.gbb_hero_controls{
+  left:0;
+  width:100%;
+  margin-left:0;
+  text-align:left;
+  font-size:0;
+  bottom:25px;
+  
+  @media (max-width: $sm-width){
+    width: 100%;
+    text-align: center;
+  }
+  
+  
+  li{
+    width:141px;
+    height:80px;
+    text-indent:0;
+    border-radius:2px;
+    padding:14px 0 0 0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    background:rgba(255,255,255,.9);
+    margin:0 1px;
+    text-align:center;
+    font-size:14px;
+    color:$blue;
+    line-height:20px;
+    @include transition(.3s);
+    vertical-align:top;
+    border:none;
+      
+    &.watch{
+      background:$blue;
+      font-size:21px;
+      color:white;
+      width:auto;
+      line-height:50px;
+      padding-left:0px;
+      padding-top:0px;
+      
+      &.no_icon{
+        padding-right:15px;
+      }
+      a{
+        color:white;
+        display: inline-block;
+         padding: 14px 13px 0 24px;
+      }
+      
+      @media (max-width: $sm-width){
+        width: auto;
+        padding:0;
+      }
+      
+      i.fa-play-circle{
+        display: inline-block;
+        font-size: 96px;
+        margin: -29px 0 0 0px;
+        color: white;
+        vertical-align: top;
+        border-radius: 50%;
+        padding: 6px;
+        width: 107px;
+        height: 107px;
+        background: #36abff;
+        @include transition(.3s);
+        
+        @media (max-width: $sm-width){
+          display:none;
+        }
+      }
+      i.fa-play-circle-o{
+        font-size: 17px!important;
+        color: white!important;
+        display: none;
+        margin: 0px auto 5px;
+        
+        @media (max-width: $sm-width){
+          display: inline!important;
+        }
+      }
+      &:hover{
+        background: lighten($blue,10%);
+        i.fa-play-circle{
+          background: lighten($blue, 10%);
+        }
+      }
+    }
   }
 }
 
@@ -1256,12 +1339,7 @@ a{
     h1,h2,h3,h4,h5,h6{
       color:$blue;
     }
-    h1{
-      font-size:45px;
-      @media (max-width: $sm-width){
-        font-size:26px;
-      }
-    }
+    h1{font-size:45px;}
     p{
       margin:19px 10% 25px;
       color: #777;
@@ -1384,6 +1462,22 @@ img.polaroid{
     text-decoration:none;
     color:white;
   }
+  
+  &.headerbtn{
+    color: white!important;
+    font-weight: bold;
+    padding: 7px 14px!important;
+    &:hover{
+      background:darken($orange,5)!important;
+    }
+    
+    &.mobile-headerbtn{
+      margin: 13px 4px 0 0px;
+      @media (min-width: 768px){
+        display:none;
+      }
+    }
+  }
 }
 
 
@@ -1472,7 +1566,7 @@ img.polaroid{
   
   .widget{
     background:$gray9;
-    padding:15px;
+    padding:20px;
   }
   
   h3{font-size:15px;font-weight:700;margin-bottom:10px;}
@@ -1733,12 +1827,8 @@ h2.resource_type{
   .cta-btn.pull-right{
     margin-left:20px;
   }
-  
+}
 
-}
-.resource_title{
-  font-size:17px;
-}
 
 
 /* ==========================================================================
@@ -1753,6 +1843,13 @@ h2.resource_type{
 /* Eloqua Form */
 
 #leadform{
+  width:100%;
+  max-width:500px;
+  
+  .hs-form.stacked .actions{
+    padding-left:0px!important;
+    margin-left:0px!important;
+  }
   
   input[type=text],select{padding:4px;}
   input[type=submit]{
@@ -1760,15 +1857,16 @@ h2.resource_type{
     color: white;
     height: auto;
     border-radius: 2px;
-    padding: 4px;
+    padding:10px 20px;
     border: none;
     height: auto!important;
+    font-size: 13px;
   }
   div.field-wrapper{margin-bottom:9px;}
   
   h3{
-    padding: 0 15px;
-    margin: 10px 0 5px 0;
+    padding: 0px;
+    margin: 10px 0 5px 0!important;
     color: $blue;
   }
 }
@@ -1823,10 +1921,6 @@ h2.resource_type{
         border-left:5px solid $blue;
       }
     }
-  }
-  
-  .cta-btn{
-    min-width:0;
   }
   
 }
@@ -1975,11 +2069,6 @@ ul.footer_nav{
 }
 .yarpp-thumbnails-horizontal{
   margin-bottom:30px!important;
-}
-.wp-pagenavi a, .wp-pagenavi span{border-radius:2px;padding: 4px 8px!important;border-color:#e4e4e4!important;}
-.wp-pagenavi a:hover, .wp-pagenavi span.current{
-  border-color:$blue!important;
-  
 }
   
 /* ==========================================================================

@@ -49,6 +49,14 @@
       </div>
   </footer>
 </div>
-<?php get_template_part('templates/eloqua','form'); ?>
+<?php //get_template_part('templates/eloqua','form'); ?>
+
+<div style="display:none;">
+	<div id="leadform">
+        <h3>Request a Demo of Our Products</h3>
+        <?php echo do_shortcode( '[hubspotform]' ); ?>
+    </div>
+</div>
 
 <?php wp_footer(); ?>
+<script src="//fast.wistia.com/static/integrations-hubspot-v1.js" async></script>

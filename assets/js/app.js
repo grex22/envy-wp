@@ -1,7 +1,25 @@
 $(document).ready(function(){
 						   
+	// Javascript to enable link to tab
+	var hash = document.location.hash;
+	var prefix = "_";
+	if (hash) {
+		$('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show');
+	} 
+	
+	// Change hash for page-reload
+	$('.nav-tabs a').on('shown', function (e) {
+		window.location.hash = e.target.hash.replace("#", "#" + prefix);
+	});
+						   
   //Global Fancybox trigger for leadform
   $("a[href='#leadform']").fancybox();
+  
+  $("#leadform #formElement15").hide(); //spam honeypot field in lead form
+  $("#leadform input").focus(function(){
+	$("#leadform #formElement15 input").val('solomon');								  
+  });
+  
   
   $("#menu-primary-navigation").append('<li class="more_link_li"><a href="#" id="more-link">More&hellip;</a></li>');
   $("#menu-primary-navigation").append('<li class="more_link_li_mobile"><a href="#" id="more-overlay-link">More&hellip;</a></li>');
@@ -90,8 +108,23 @@ $(document).ready(function(){
     $("#announcement_close").click(function(e){
       e.preventDefault();
       $("#announcement_wrap").slideToggle(300);
+	  
       $('body').animate({paddingTop: 61 },300);
     });
   }
+  
+  //Add Google Analytics Event to any client login links
+
+  
+  var trackOutboundLink = function(url) {
+	   ga('send', 'event', 'outbound', 'login-click', url, {'hitCallback':
+		 function () {
+		 document.location = url;
+		 }
+	   });
+	}
+  $("body.home a[href='https://video.envysion.com/auth/login.jsp']").click(function(e){
+	trackOutboundLink($(this).attr('href'));
+  });
   
 });

@@ -3,13 +3,40 @@
  * Custom functions
  */
 
+// Add about the author to wordpress feeds
+function wpbeginner_postrss($content) {
+	global $wp_query;
+	$postid = $wp_query->post->ID;
+	
+	if(is_feed()) {
+		//while the filter this hooks into will always add this, the is_feed check only runs this on feed content
+		if(has_post_thumbnail($post->ID)) {
+			$content = '<div>' . get_the_post_thumbnail($postid,'thumbnail') . '</div>' . $content;
+		}
+		$content = $content."<p>About ".get_the_author()."</p>";
+		$is_guest = get_field('use_a_guest_author_for_this_post',$postid);
+		
+		if($is_guest):
+			$bio = get_field('guest_author_bio',$postid);
+		else:
+			$bio = wpautop(get_the_author_meta('description'));
+		endif;
+		$content .= $bio;
+	}else{
+		$content = $content;
+	}
+	return $content;
+}
+add_filter('the_content', 'wpbeginner_postrss');
+
+
 function add_cta_stuff_to_posts($content) {
 	global $post;
 	$cta = '';
 	
 	$cta_content = get_field('call-to-action_content',$post->ID);
 	$cta_icon = get_field('call-to-action_icon',$post->ID);
-	if($cta_content):
+	if($cta_content && !is_feed()):
 		$cta .= "<div class='postcta'>".wpautop($cta_content)."</div>";
 		if($cta_icon):
 			$cta .= "<style>div.postcta:before{content:'".rtrim(str_replace("&#x","\\", $cta_icon->unicode),";")."';}</style>";
@@ -70,6 +97,74 @@ function mycustom_extract_shortcode_arguments($args, $keys) {
     }
     return $result;
 }
+
+
+
+function output_jobvite_iframe(){
+	$return = '<!-- BEGIN JOBVITE CODE -->
+    <iframe id="jobviteframe" src="http://hire.jobvite.com/CompanyJobs/Jobs.aspx?c=qv1aVfwl&jvresize=http://envysion.com/FrameResize.html" width="100%" height="500px" scrolling="no" frameborder="0" allowtransparency="true">Sorry, iframes are not supported.</iframe>
+    <script type="text/javascript">
+          var l = location.href;
+          var args = "";
+          var k = "";
+          var iStart = l.indexOf("?jvk=");
+          if (iStart == -1) iStart = l.indexOf("&jvk=");
+          if (iStart != -1) {
+                iStart += 5;
+                var iEnd = l.indexOf("&", iStart);
+                if (iEnd == -1) iEnd = l.length;
+                k = l.substring(iStart, iEnd);
+          }
+          iStart = l.indexOf("?jvi=");
+          if (iStart == -1) iStart = l.indexOf("&jvi=");
+          if (iStart != -1) {
+                iStart += 5;
+                var iEnd = l.indexOf("&", iStart);
+                if (iEnd == -1) iEnd = l.length;
+                args += "&j=" + l.substring(iStart, iEnd);
+                if (!k.length) args += "&k=Job";
+                var iStart = l.indexOf("?jvs=");
+                if (iStart == -1) iStart = l.indexOf("&jvs=");
+                if (iStart != -1){
+                      iStart += 5;
+                      var iEnd = l.indexOf("&", iStart);
+                      if (iEnd == -1) iEnd = l.length;
+                      args += "&s=" + l.substring(iStart, iEnd);
+                }
+          }
+          if (k.length) args += "&k=" + k;
+          if (args.length) document.getElementById("jobviteframe").src += args;
+          function resizeFrame(height, scrollToTop) {
+                if (scrollToTop) window.scrollTo(0, 0);
+                var oFrame = document.getElementById("jobviteframe");
+                if (oFrame) oFrame.height = height;
+          }
+    </script>
+    <!--END JOBVITE CODE -->';
+	
+	return $return;
+}
+
+add_shortcode( 'jobvite' , 'output_jobvite_iframe' );
+
+
+function output_hubspot_form(){
+
+	$return ="
+		<script charset='utf-8' src='//js.hsforms.net/forms/current.js'></script>
+		<script>
+		  hbspt.forms.create({ 
+			sfdcCampaignId: '701400000011X5NAAU',
+			portalId: '444576',
+			formId: 'da3e4228-edbb-4644-9330-30a3c3917d50'
+		  });
+		</script>
+
+	";
+	return $return;
+}
+
+add_shortcode( 'hubspotform' , 'output_hubspot_form' );
  
  
 function add_linkedin_contactmethod( $contactmethods ) {
