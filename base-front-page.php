@@ -57,9 +57,7 @@
       
           <div id="home_hero_slider" class="carousel fade" data-ride="carousel">
       
-          <?php $controls = '<ol class="carousel-indicators '; ?>
-          <?php if($_GET['newhero'] == 'nh') $controls .= "gbb_hero_controls"; else $controls .= "home_hero_controls"; ?>
-		  <?php $controls .= '">'; ?>
+          <?php $controls = '<ol class="carousel-indicators gbb_hero_controls">'; ?>
           <?php $slides .= '<div class="carousel-inner">'; ?>
           <?php $i=0; ?>
          
@@ -68,7 +66,7 @@
                   else $class = ""; ?>
             <?php $slidebg = get_sub_field('slide_background'); ?>
             <?php $highlightimg = get_sub_field('slide_highlight_image'); ?>
-            <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="'.$class.'"><i class="fa '.get_sub_field('slide_button_icon').'"></i>'.get_sub_field('slide_button_text').'</li>'; ?>
+            <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="slidepips '.$class.'"></li>'; ?>
             <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].')" id="frosted-'.$i.'">'; ?>
             <?php $slides .= '<div class="wrap container">'; ?>
             <?php $slides .= '<div class="row">'; ?>
@@ -91,7 +89,8 @@
           
           <?php 
 		  //Watch button
-		  $controls .='<li class="watch"><a href="//fast.wistia.net/embed/iframe/z1iuy28egs?popover=true" class="wistia-popover[height=450,playerColor=7b796a,width=800]">Play<i class="fa fa-play-circle"></i></a></li></ol>'; 
+		  $controls .= '<li class="watch requestdemo no_icon pull-left"><a href="#leadform"><span class="hide-on-xs">Request </span>Demo</a></li>';
+		  $controls .='<li class="watch pull-right"><a href="//fast.wistia.net/embed/iframe/z1iuy28egs?popover=true" class="wistia-popover[height=450,playerColor=7b796a,width=800]">Play<i class="fa fa-play-circle"></i></a></li></ol>'; 
 		  //$controls .='<li class="watch no_icon"><a href="'.get_permalink(8).'">Products</a></li></ol>';
 		  ?>
           <?php $slides .='</div>'; ?>

@@ -142,6 +142,13 @@ a{
   @media (max-width:$sm-width){
     .cta-btn{display:block;}
     .cta-btn + .cta-btn{margin-left:auto;margin-top:10px;}
+    
+    padding-bottom:30px;
+    
+    h2{
+      font-size:19px;
+      margin:20px 0 0 0;
+    }
   }
 }
 .orangebg{
@@ -532,7 +539,7 @@ a{
     position: relative;
     margin-top: -30px;
     background-color: rgba(0, 0, 0, 0.15);
-    height: 416px;
+    height: 405px;
     overflow: hidden;
     padding-top: 30px;
     padding-left: 30px;
@@ -548,7 +555,7 @@ a{
     background-size: cover;
     background-position-x: left;
     background-position-y: center!important;
-    width: 50%;
+    width: 50.5%;
     background-size: 200%;
     content: "";
     overflow:hidden;
@@ -568,7 +575,7 @@ a{
     top:0;
     left:0;
     z-index:-1;
-    width:50%;
+    width:50.5%;
     height:100%;
     content:"";
     /*background-color:rgba(255,255,255,.1);*/
@@ -627,7 +634,7 @@ a{
   opacity: 1; }
   .carousel.fade .item {
     
-    height: 416px; /* Slider height. Change for Responsive */
+    height: 405px; /* Slider height. Change for Responsive */
     
     -moz-transition: opacity ease-in-out .7s;
     -o-transition: opacity ease-in-out .7s;
@@ -660,7 +667,7 @@ a{
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; }
       
 .indicators_wrap{
-  margin-top: 410px;
+  margin-top: 380px;
   position: absolute;
   max-width: 1170px;
   
@@ -781,93 +788,92 @@ a{
   left:0;
   width:100%;
   margin-left:0;
-  text-align:left;
+  text-align:center;
   font-size:0;
   bottom:25px;
+  line-height:33px;
   
   @media (max-width: $sm-width){
     width: 100%;
     text-align: center;
   }
   
+  li.slidepips, li.slidepips.active{
+    margin:22px 2px 2px 2px;
+    
+  }
   
-  li{
-    width:141px;
-    height:80px;
+  
+  li.watch, li.requestdemo{
+    height:60px;
     text-indent:0;
     border-radius:2px;
-    padding:14px 0 0 0;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
-    background:rgba(255,255,255,.9);
     margin:0 1px;
     text-align:center;
-    font-size:14px;
-    color:$blue;
-    line-height:20px;
     @include transition(.3s);
     vertical-align:top;
     border:none;
-      
-    &.watch{
-      background:$blue;
-      font-size:21px;
+    
+    background:$blue;
+    font-size:21px;
+    color:white;
+    width:auto;
+    line-height:30px;
+    padding-left:0px;
+    padding-top:0px;
+    
+    &.no_icon{
+      padding-right:15px;
+    }
+    a{
       color:white;
-      width:auto;
-      line-height:50px;
-      padding-left:0px;
-      padding-top:0px;
-      
-      &.no_icon{
-        padding-right:15px;
-      }
-      a{
-        color:white;
-        display: inline-block;
-         padding: 14px 13px 0 24px;
-      }
+      display: inline-block;
+       padding: 14px 13px 0 24px;
+    }
+    
+    @media (max-width: $sm-width){
+      width: auto;
+      padding:0;
+    }
+    
+    i.fa-play-circle{
+      display: inline-block;
+      font-size: 96px;
+      margin: -37px 0 0 0px;
+      color: white;
+      vertical-align: top;
+      border-radius: 50%;
+      padding: 6px;
+      width: 107px;
+      height: 107px;
+      background: #36abff;
+      @include transition(.3s);
       
       @media (max-width: $sm-width){
-        width: auto;
-        padding:0;
+        display:none;
       }
+    }
+    i.fa-play-circle-o{
+      font-size: 17px!important;
+      color: white!important;
+      display: none;
+      margin: 0px auto 5px;
       
+      @media (max-width: $sm-width){
+        display: inline!important;
+      }
+    }
+    &:hover{
+      background: lighten($blue,10%);
       i.fa-play-circle{
-        display: inline-block;
-        font-size: 96px;
-        margin: -29px 0 0 0px;
-        color: white;
-        vertical-align: top;
-        border-radius: 50%;
-        padding: 6px;
-        width: 107px;
-        height: 107px;
-        background: #36abff;
-        @include transition(.3s);
-        
-        @media (max-width: $sm-width){
-          display:none;
-        }
-      }
-      i.fa-play-circle-o{
-        font-size: 17px!important;
-        color: white!important;
-        display: none;
-        margin: 0px auto 5px;
-        
-        @media (max-width: $sm-width){
-          display: inline!important;
-        }
-      }
-      &:hover{
-        background: lighten($blue,10%);
-        i.fa-play-circle{
-          background: lighten($blue, 10%);
-        }
+        background: lighten($blue, 10%);
       }
     }
   }
+  li.requestdemo{background:$blue!important;}
 }
 
 
@@ -2079,6 +2085,11 @@ ul.footer_nav{
 .inline{display:inline}
 .block{display:block}
 .relative{position:relative}
+.hide-on-xs{
+  @media (max-width:768px){
+    display:none;
+  }
+}
 
 /* ==========================================================================
    WordPress Generated Classes
