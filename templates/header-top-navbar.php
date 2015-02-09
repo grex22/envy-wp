@@ -98,8 +98,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <a class="navbar-brand" href="<?php echo home_url(); ?>/"><?php bloginfo('name'); ?></a>
     </div>
     <ul class="nav navbar-nav pull-right hidden-sm hidden-xs">
-      <li class="gbb-client-login"><a href="https://video.envysion.com/auth/login.jsp" id="client_login_link"><i class="fa fa-user"></i>&nbsp; Client Login </a></li>
       <li class=""><a href="#leadform" class="cta-btn orange headerbtn"> Request Demo </a></li>
+      <li class="gbb-client-login"><a href="https://video.envysion.com/auth/login.jsp" id="client_login_link"><i class="fa fa-user"></i>&nbsp; Client Login </a></li>
+      
     </ul>
     <nav class="collapse navbar-collapse" role="navigation">
       <?php

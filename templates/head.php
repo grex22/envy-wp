@@ -16,6 +16,7 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="<?php bloginfo('template_url'); ?>/assets/css/font-awesome.css" type="text/css" rel="stylesheet">
   <!-- GAnalytics Tracking -->
+  <!--
   <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -26,6 +27,7 @@
 	ga('send', 'pageview');
 	
   </script>
+  -->
   
   <meta name="google-site-verification" content="TcpfZTFEDB2AJK0Vk3BQZW9UCWK_2QK7zQQR_JXuF0A" />
     

@@ -52,6 +52,89 @@
             </div>
           </div>
 
+          <?php elseif(isset($_GET['dem']) && $_GET['dem'] == "newslider123"): ?>
+          
+              <div id="home_hero_slider" class="carousel fade" data-ride="carousel">
+          
+              <?php $controls = '<ol class="carousel-indicators" style="margin-bottom: 0;line-height: 0;bottom: -17px;">'; ?>
+              <?php $slides .= '<div class="carousel-inner">'; ?>
+              <?php $i=0; ?>
+             
+              <?php while( has_sub_field('slide') ): ?>
+                <?php if($i == 0) $class = ' active';
+                      else $class = ""; ?>
+                <?php $slidebg = get_sub_field('slide_background'); ?>
+                <?php $highlightimg = get_sub_field('slide_highlight_image'); ?>
+                <?php $controls.='<li data-target="#home_hero_slider" data-slide-to="'.$i.'" class="slidepips '.$class.'"></li>'; ?>
+                <?php $slides .= '<div class="home_hero_slide item'.$class.'" style="background:url('.$slidebg[url].')" id="frosted-'.$i.'">'; ?>
+                <?php $slides .= '<div class="wrap container">'; ?>
+                <?php $slides .= '<div class="row">'; ?>
+                <?php $slides .= '<div class="col-sm-6 padding_right">'; ?>
+                <?php echo "<style>#frosted-".$i.":before{background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%20width%3D%221920%22%20height%3D%221120%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22blur%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Cimage%20xlink%3Ahref%3D%22".urlencode($slidebg[url])."%22%20width%3D%221920%22%20height%3D%221120%22%20filter%3D%22url%28%23blur%29%22%2F%3E%3C%2Fsvg%3E'), url('".$slidebg[url]."');
+                }</style>"; ?>
+                <?php $slides .= '<h2>'.get_sub_field('slide_headline').'</h2>'; ?>
+                <?php $slides .= '<p>'.get_sub_field('slide_blurb').'</p>'; ?>
+                <?php $slides .= '</div>'; ?>
+                <?php $slides .= '<div class="col-sm-6 text-center">'; ?>
+                <?php if($highlightimg) $slides .= '<img src="'.$highlightimg[url].'">'; ?>
+                <?php $slides .= '</div>'; ?>
+                <?php $slides .= '</div>'; ?>
+                <?php $slides .= '</div>'; ?>
+                <?php $slides .= '</div>'; ?>
+                
+                <?php $i++; ?>
+              
+              <?php endwhile; ?>
+              
+              <?php               
+			  $controls .= "</ol>";
+              $slides .='</div>';
+			  ?>
+    
+            
+            <div class="wrap hero_controls_wrap">
+            	<div class="container">
+                	<div class="row relative">
+                    	<div class="col-sm-12">
+            				<?php echo $controls; ?>
+            			</div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap hero_buttons_wrap">
+            	<div class="container">
+                	<div class="row relative">
+                    	<div class="col-xs-12">
+                        	<a href="//fast.wistia.net/embed/iframe/z1iuy28egs?popover=true" class="video_play_button wistia-popover[height=450,playerColor=7b796a,width=800]"><img src="/assets/img/video-button.png"></a>
+              				<a href="#leadform" class="hero_button"><span class="hide-on-xs">Request </span>Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php echo $slides; ?>
+            <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script>
+            
+            </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
           
 		  <?php else: ?>
       
@@ -89,8 +172,8 @@
           
           <?php 
 		  //Watch button
-		  $controls .= '<li class="watch requestdemo no_icon pull-left"><a href="#leadform"><span class="hide-on-xs">Request </span>Demo</a></li>';
-		  $controls .='<li class="watch pull-right"><a href="//fast.wistia.net/embed/iframe/z1iuy28egs?popover=true" class="wistia-popover[height=450,playerColor=7b796a,width=800]">Play<i class="fa fa-play-circle"></i></a></li></ol>'; 
+		  $controls .='<li class="watch video_watch_btn pull-left"><a href="//fast.wistia.net/embed/iframe/z1iuy28egs?popover=true" class="wistia-popover[height=450,playerColor=7b796a,width=800]"><img src="/assets/img/video-button.png"></a></li>'; 
+		  $controls .= '<li class="watch requestdemo no_icon pull-right"><a href="#leadform"><span class="hide-on-xs">Request </span>Demo</a></li></ol>';
 		  //$controls .='<li class="watch no_icon"><a href="'.get_permalink(8).'">Products</a></li></ol>';
 		  ?>
           <?php $slides .='</div>'; ?>
